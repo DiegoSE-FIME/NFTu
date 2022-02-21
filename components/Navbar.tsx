@@ -1,8 +1,35 @@
 import styles from './Logo.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useCallback, useEffect } from 'react';
+import { useWeb3React } from '@web3-react/core';
+import { connector } from '../config/web3';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+	const router = useRouter();
+
+	const { activate, active, deactivate, error, account, chainId } =
+		useWeb3React();
+
+	const connectWallet = useCallback(() => {
+		activate(connector);
+		localStorage.setItem('previouslyConnected', 'true');
+	}, [activate]);
+
+	useEffect(() => {
+		if (localStorage.getItem('previouslyConnected') === 'true') connectWallet();
+	}, [connectWallet]);
+
+	const disconnectWallet = () => {
+		deactivate();
+		localStorage.removeItem('previouslyConnected');
+	};
+
+	if (error) {
+		router.push('/walletError');
+	}
+
 	return (
 		<div>
 			<nav className="px-2 sm:px-4 py-2.5">
@@ -30,20 +57,33 @@ const Navbar = () => {
 							</a>
 						</Link>
 					</div>
-					<Link href="/login">
-						<button className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden sm:inline-flex">
+
+					{/* add class hidden sm:inline-flex*/}
+					{active ? (
+						<button
+							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+							onClick={disconnectWallet}>
+							{' '}
+							Disconnect wallet{' '}
+						</button>
+					) : (
+						<button
+							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+							onClick={connectWallet}>
 							{' '}
 							Connect wallet{' '}
-							<Image
-								src="/assets/Line.png"
-								width="24"
-								height="24"
-								className="w-4 h-4 ml-3 fill-current"
-							/>{' '}
 						</button>
-					</Link>
+					)}
 				</div>
 			</nav>
+			{active && (
+				<>
+					<p className="text-center mt-4">
+						You are connected to {chainId} network
+					</p>
+					<p className="text-center mt-4">Your account is {account}</p>
+				</>
+			)}
 		</div>
 	);
 };
