@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const walletError: NextPage = () => {
+	const router = useRouter();
 	return (
 		<>
 			<h1 className="text-center mt-4">Whoops</h1>
@@ -9,10 +10,11 @@ const walletError: NextPage = () => {
 				There was an error with your wallet. Please make sure you have installed
 				MetaMask extension and try again.
 				<br />
-				<Link href="/">
-					<a className="underline decoration-solid text-teal-500">Go back</a>
-				</Link>
-				.
+				<button
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+					onClick={() => router.push('/')}>
+					Connect wallet
+				</button>
 			</p>
 		</>
 	);

@@ -1,6 +1,5 @@
 import styles from './Logo.module.css';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useCallback, useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
@@ -17,9 +16,9 @@ const Navbar = () => {
 		localStorage.setItem('previouslyConnected', 'true');
 	}, [activate]);
 
-	useEffect(() => {
-		if (localStorage.getItem('previouslyConnected') === 'true') connectWallet();
-	}, [connectWallet]);
+	//useEffect(() => {
+	//if (localStorage.getItem('previouslyConnected') === 'true') connectWallet();
+	//}, [connectWallet]);
 
 	const disconnectWallet = () => {
 		deactivate();
@@ -29,7 +28,7 @@ const Navbar = () => {
 	if (error) {
 		router.push('/walletError');
 	}
-
+	console.log(chainId, account);
 	return (
 		<div>
 			<nav className="px-2 sm:px-4 py-2.5">
@@ -61,14 +60,14 @@ const Navbar = () => {
 					{/* add class hidden sm:inline-flex*/}
 					{active ? (
 						<button
-							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden xl:inline-flex"
 							onClick={disconnectWallet}>
 							{' '}
 							Disconnect wallet{' '}
 						</button>
 					) : (
 						<button
-							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-8 hidden xl:inline-flex"
 							onClick={connectWallet}>
 							{' '}
 							Connect wallet{' '}
@@ -76,14 +75,6 @@ const Navbar = () => {
 					)}
 				</div>
 			</nav>
-			{active && (
-				<>
-					<p className="text-center mt-4">
-						You are connected to {chainId} network
-					</p>
-					<p className="text-center mt-4">Your account is {account}</p>
-				</>
-			)}
 		</div>
 	);
 };
