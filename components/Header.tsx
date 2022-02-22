@@ -1,4 +1,4 @@
-import Image from 'next/Image';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
 
@@ -22,8 +22,15 @@ const Header = () => {
 			</div>
 			<div className={styles.image}>
 				<div className="w-40 z-40 absolute top-[19%] right-[32%] hidden xl:block">
-					<Link href="/">
-						<Image src="/imageButton.png" width={120} height={96} alt="image" />
+					<Link href="/marketplace">
+						<a>
+							<Image
+								src="/imageButton.png"
+								width={120}
+								height={96}
+								alt="image"
+							/>
+						</a>
 					</Link>
 				</div>
 				<div className={styles.info_image}>
