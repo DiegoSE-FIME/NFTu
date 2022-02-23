@@ -19,6 +19,20 @@ const Header = () => {
 					natus eum inventore beatae quos quod nam, accusamus molestiae ut alias
 					placeat vitae.
 				</p>
+				{/* outline button that says Get started and on the right side a How it works with only border in the bottom*/}
+				<div className="mt-5">
+					<Link href="/">
+						<button className="inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black">
+							Get started
+							<Image src="/assets/Line.png" alt="line" width={20} height={20} />
+						</button>
+					</Link>
+					<Link href="/">
+						<a className="inline-flex border-b-2 border-teal-400 ml-7 font-thin">
+							How it works
+						</a>
+					</Link>
+				</div>
 			</div>
 			<div className={styles.image}>
 				<div className="w-40 z-40 absolute top-[19%] right-[32%] hidden xl:block">

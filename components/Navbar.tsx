@@ -16,10 +16,6 @@ const Navbar = () => {
 		localStorage.setItem('previouslyConnected', 'true');
 	}, [activate]);
 
-	//useEffect(() => {
-	//if (localStorage.getItem('previouslyConnected') === 'true') connectWallet();
-	//}, [connectWallet]);
-
 	const disconnectWallet = () => {
 		deactivate();
 		localStorage.removeItem('previouslyConnected');
