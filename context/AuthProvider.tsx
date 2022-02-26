@@ -1,58 +1,92 @@
-import { db, auth, provider } from '../config/firebase/firebase';
-import { useState, useEffect, createContext } from 'react';
-import { User, AuthContextType } from '../interfaces/interfaces';
+import { AuthContext } from './AuthContext';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import {
+	auth,
+	db,
+	provider,
+	signInWithPopup,
+	signOut,
+	onAuthStateChanged,
+} from '../config/firebase/firebase.js';
+
+import { ref, set } from 'firebase/database';
+import { FirebaseData } from '../interfaces/interfaces';
 
 type AuthProviderProps = {
 	children: JSX.Element | JSX.Element[];
 };
 
-export const AuthContext = createContext<AuthContextType>({
-	user: null,
-	signIn: () => Promise.resolve(),
-	signOut: () => Promise.resolve(),
-	addUser: () => {},
-});
+export interface IUser {
+	uid: string;
+	email: string;
+	displayName: string;
+	photoURL: string;
+}
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-	const [user, setUser] = useState<User | null>(null);
+	const initalUserData = {
+		uid: '',
+		email: '',
+		displayName: '',
+		photoURL: '',
+		createdAt: '',
+	};
+	const [user, setUser] = useState<FirebaseData>(initalUserData);
+	const [isLoading, setIsLoading] = useState(true);
+
+	const router = useRouter();
 
 	useEffect(() => {
-		auth.onAuthStateChanged((user: User | null) => {
+		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				setUser(user);
+				setUser(user as FirebaseData);
+				setIsLoading(false);
 			} else {
-				setUser(null);
+				setUser(initalUserData);
+				setIsLoading(false);
 			}
 		});
-	}, []);
-
-	const addUser = async (user: User) => {
-		const userRef = db.collection('users').doc(user.uid);
-		const userSnapshot = await userRef.get();
-		if (!userSnapshot.exists) {
-			await userRef.set({
-				email: user.email,
-				displayName: user.displayName,
-				photoURL: user.photoURL,
-			});
-		}
-	};
+	}, [user]);
 
 	const signIn = async () => {
-		const result = await auth.signInWithPopup(provider);
-		const user = result.user;
-		if (user) {
-			setUser(user);
-		}
+		await signInWithPopup(auth, provider);
+		const firebaseUser = auth.currentUser;
+		setUser({
+			uid: firebaseUser?.uid || '',
+			email: firebaseUser?.email || '',
+			displayName: firebaseUser?.displayName || '',
+			photoURL: firebaseUser?.photoURL || '',
+			createdAt: new Date().toISOString(),
+		});
 	};
 
-	const signOut = async () => {
-		await auth.signOut();
-		setUser(null);
+	const logOut = async () => {
+		signOut(auth);
+		setUser(initalUserData);
+		router.push('/');
+	};
+
+	const addUser = async (user: IUser) => {
+		set(ref(db, 'users'), {
+			uid: user.uid,
+			email: user.email,
+			displayName: user.displayName,
+			photoURL: user.photoURL,
+			createdAt: new Date().toISOString(),
+			lastLoginAt: new Date().toISOString(),
+		});
 	};
 
 	return (
-		<AuthContext.Provider value={{ user, signIn, signOut, addUser }}>
+		<AuthContext.Provider
+			value={{
+				user,
+				isLoading,
+				signIn,
+				logOut,
+				addUser,
+			}}>
 			{children}
 		</AuthContext.Provider>
 	);
