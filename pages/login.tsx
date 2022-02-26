@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { theme } from '../components/tailwindClasses';
 
-const login: NextPage = () => {
+const Login: NextPage = () => {
 	const { signIn } = useContext(AuthContext);
 
 	return (
@@ -18,4 +18,4 @@ const login: NextPage = () => {
 	);
 };
 
-export default login;
+export default Login;
