@@ -16,7 +16,6 @@ import { FirebaseData, IUser } from '../interfaces/interfaces';
 type AuthProviderProps = {
 	children: JSX.Element | JSX.Element[];
 };
-// User authentication with SignInWithGoogle saving user data to firestore database and local storage and SignOut
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const [firebaseUser, setFirebaseUser] = useState<IUser | null>(null);
@@ -35,7 +34,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 				createdAt: user.metadata?.creationTime || '',
 			};
 			setFirebaseUser(userData);
-			console.log(userData);
 			setIsLoading(false);
 		}
 	};
