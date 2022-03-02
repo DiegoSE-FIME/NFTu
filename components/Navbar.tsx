@@ -1,13 +1,15 @@
 import styles from './Logo.module.css';
 import Link from 'next/link';
-import { useCallback, useEffect } from 'react';
+import Image from 'next/image';
+import { useCallback, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
 import { useRouter } from 'next/router';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
 	const router = useRouter();
-
+	const { firebaseUser, signOutUser } = useContext(AuthContext);
 	const { activate, active, deactivate, error, account, chainId } =
 		useWeb3React();
 
@@ -24,7 +26,7 @@ const Navbar = () => {
 	if (error) {
 		router.push('/walletError');
 	}
-	console.log(chainId, account);
+
 	return (
 		<div>
 			<nav className="px-2 sm:px-4 py-2.5">
@@ -54,21 +56,39 @@ const Navbar = () => {
 					</div>
 
 					{/* add class hidden sm:inline-flex*/}
-					{active ? (
-						<button
-							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden xl:inline-flex"
-							onClick={disconnectWallet}>
-							{' '}
-							Disconnect wallet{' '}
-						</button>
-					) : (
-						<button
-							className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-8 hidden xl:inline-flex"
-							onClick={connectWallet}>
-							{' '}
-							Connect wallet{' '}
-						</button>
-					)}
+					<div className="space-x-2">
+						{active ? (
+							<button
+								className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden xl:inline-flex"
+								onClick={disconnectWallet}>
+								{' '}
+								Disconnect wallet{' '}
+							</button>
+						) : (
+							<button
+								className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden xl:inline-flex"
+								onClick={connectWallet}>
+								{' '}
+								Connect wallet{' '}
+							</button>
+						)}
+
+						{firebaseUser ? (
+							<button
+								className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+								onClick={signOutUser}>
+								{' '}
+								Sign out{' '}
+							</button>
+						) : (
+							<button
+								className="inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+								onClick={() => router.push('/Login')}>
+								{' '}
+								Sign In{' '}
+							</button>
+						)}
+					</div>
 				</div>
 			</nav>
 		</div>
