@@ -1,8 +1,8 @@
 export interface IAuthContext {
-	user: FirebaseData | null;
-	signIn: () => Promise<void>;
-	logOut: () => Promise<void>;
-	addUser: (user: FirebaseData) => void;
+	firebaseUser: FirebaseData | null;
+	firebaseData: FirebaseData | null;
+	signInWithGoogle: () => Promise<void>;
+	signOutUser: () => Promise<void>;
 	isLoading: boolean;
 }
 
@@ -21,6 +21,14 @@ export interface FirebaseData {
 	appName?: string;
 }
 
+export interface IUser {
+	uid: string;
+	email: string;
+	displayName: string;
+	photoURL: string;
+	createdAt: string;
+}
+
 export interface ProviderDatum {
 	providerId: string;
 	uid: string;
@@ -34,4 +42,21 @@ export interface StsTokenManager {
 	refreshToken: string;
 	accessToken: string;
 	expirationTime: number;
+}
+
+export interface ITheme {
+	loginButton?: string;
+	headerDiv?: string;
+	headerStars?: string;
+	headerTitleDiv?: string;
+	headerTitle?: string;
+	headerDescription?: string;
+	getStartedButton?: string;
+	howItWorksButton?: string;
+	headerImage?: string;
+	path1GoogleIcon?: string;
+	path2GoogleIcon?: string;
+	path3GoogleIcon?: string;
+	path4GoogleIcon?: string;
+	pathGithubIcon?: string;
 }
