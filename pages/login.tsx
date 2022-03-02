@@ -2,14 +2,13 @@ import { NextPage } from 'next';
 import { theme } from '../components/tailwindClasses';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-
+import Image from 'next/image';
 const Login: NextPage = () => {
 	const { signInWithGoogle, firebaseUser } = useContext(AuthContext);
-	const router = useRouter();
+
 	return !firebaseUser ? (
-		<div className="h-full  from-green-400 to-indigo-900 w-full py-16 px-4">
+		<div className="h-full w-full py-9 px-4">
 			<div className="flex flex-col items-center justify-center">
 				<div className="shadow rounded border border-teal-400 lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
 					<p
@@ -59,14 +58,31 @@ const Login: NextPage = () => {
 			</div>
 		</div>
 	) : (
-		<div className="flex justify-center mt-9">
-			<div>
-				<h2 className="text-center text-xl">You are already logged in</h2>{' '}
-				<Link href="/">
-					<a className="text-center text-xl">Go to home page</a>
-				</Link>
+		<>
+			<div className="flex justify-center items-center mt-8">
+				<Image
+					src={firebaseUser.photoURL}
+					width={100}
+					height={100}
+					className={theme.profileImage}
+				/>
 			</div>
-		</div>
+			<div className="mt-5 text-center flex justify-center items-center">
+				<h2 className="text-center text-xl xl:text-4xl">
+					You are already logged in, {firebaseUser.displayName}!
+				</h2>{' '}
+			</div>
+			<div className="mt-5 text-center flex justify-center items-center">
+				<p className="text-center text-xl xl:text-4xl">
+					Explore the{' '}
+					<Link href="/marketplace">
+						<a className="text-teal-400 text-xl text-center xl:text-3xl">
+							Marketplace.
+						</a>
+					</Link>
+				</p>
+			</div>
+		</>
 	);
 };
 
