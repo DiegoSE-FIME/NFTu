@@ -3,17 +3,20 @@ import { ITheme } from '../interfaces/interfaces';
 export const theme: ITheme = {
 	loginButton:
 		'focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-white-700 flex items-center w-full mt-5',
-	headerDiv: 'grid grid-cols-2 gap-4',
-	headerStars: 'w-40 absolute left-[30%] top-[22%] self-auto hidden xl:block',
+	headerDiv: 'grid grid-cols-2 gap-4 mt-11',
+	bodyDiv: 'grid grid-cols-2 gap-4 mt-11',
+	headerStars: 'w-40 absolute left-[30%] top-[25%] self-auto hidden xl:block',
 	headerTitleDiv:
 		'xl:w-[450px] w-[300px] col-span-1 ml-5 sm:ml-[80px] mt-[20%]',
 	headerTitle:
 		'text-3xl font-semibold sm:text-5xl sm:leading-normal leading-normal',
 	headerDescription: 'text-gray-400 mt-5',
 	getStartedButton:
-		'inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
+		'inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
+	placeABidButton:
+		'absolute outline outline-1 outline-black-400 bg-white text-black rounded items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-600 hover:text-white',
 	howItWorksButton: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
-	headerImage: 'w-40 z-40 absolute top-[19%] right-[32%] hidden xl:block',
+	headerImage: 'w-40 z-40 absolute top-[25%] right-[32%] hidden xl:block',
 	path1GoogleIcon:
 		'M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z',
 	path2GoogleIcon:
@@ -30,5 +33,9 @@ export const theme: ITheme = {
 		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800',
 	signOutButton:
 		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
-	profileImage: 'w-20 h-20 ml-3 rounded-full',
+	bodyTitle:
+		'text-2xl px-5 w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
+	gradientAqua:
+		'absolute top-0 right-0 blur-sm xl:absolute xl:right-9 xl:top-[15%] xl:rounded-full xl:blur-sm ',
+	profileImage: 'w-32 h-32 rounded-full mx-auto',
 };

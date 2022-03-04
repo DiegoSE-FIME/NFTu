@@ -51,11 +51,15 @@ export interface ITheme {
 	signOutButton?: string;
 	profileImage?: string;
 	headerDiv?: string;
+	bodyDiv?: string;
 	headerStars?: string;
 	headerTitleDiv?: string;
 	headerTitle?: string;
+	bodyTitle?: string;
+	gradientAqua?: string;
 	headerDescription?: string;
 	getStartedButton?: string;
+	placeABidButton?: string;
 	howItWorksButton?: string;
 	headerImage?: string;
 	path1GoogleIcon?: string;
