@@ -36,7 +36,14 @@ const Header = () => {
 					</Link>
 				</div>
 			</div>
-
+			<div className={theme.gradientAqua}>
+				<Image
+					src="/gradientAqua.png"
+					width={350}
+					height={350}
+					className="blur-2xl xl:rounded-full xl:blur-lg"
+				/>
+			</div>
 			<div className={styles.image}>
 				<div className={theme.headerImage}>
 					<Link href="/marketplace">
@@ -50,9 +57,8 @@ const Header = () => {
 						</a>
 					</Link>
 				</div>
-
 				<div className={styles.info_image}>
-					<Image src="/InfoImage.png" width={300} height={300} alt="image" />
+					<Image src="/InfoImage.png" width={350} height={350} alt="image" />
 				</div>
 			</div>
 		</div>
