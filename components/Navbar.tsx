@@ -31,7 +31,7 @@ const Navbar = () => {
 			<nav className="px-2 sm:px-4 py-2.5">
 				<div className="container flex flex-wrap justify-between items-center mx-auto ">
 					<Link href="/">
-						<a className="flex items-center whitespace-nowrap px-2">
+						<a className="flex items-center whitespace-nowrap px-4">
 							<span className={styles.logo}>NFTu</span>
 						</a>
 					</Link>
