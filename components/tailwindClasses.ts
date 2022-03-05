@@ -32,10 +32,10 @@ export const theme: ITheme = {
 	signInButton:
 		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800',
 	signOutButton:
-		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
+		'inline-flex items-center h-10 px-5 xl:m-2 m-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
 	bodyTitle:
-		'text-2xl px-5 w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
+		'text-2xl px-5 text-bold xl:text-bold w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
 	gradientAqua:
-		'absolute top-0 right-0 blur-sm xl:absolute xl:right-9 xl:top-[15%] xl:rounded-full xl:blur-sm ',
+		'absolute top-[100px] right-0 blur-sm xl:absolute xl:right-9 xl:top-[15%] xl:rounded-full xl:blur-sm ',
 	profileImage: 'w-32 h-32 rounded-full mx-auto',
 };
