@@ -38,13 +38,14 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 		}
 	};
 
-	const signOutUser = async () => {
+	const signOutUser = async (): Promise<void> => {
 		await signOut(auth);
+		console.log('signed out');
 		setFirebaseUser(null);
 		setIsLoading(false);
 	};
 
-	const addUser = async (user: IUser) => {
+	const addUser = async (user: IUser): Promise<void> => {
 		const userData: FirebaseData = {
 			uid: user.uid,
 			email: user.email,
