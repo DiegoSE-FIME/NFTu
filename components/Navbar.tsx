@@ -23,7 +23,7 @@ const Navbar = () => {
 	};
 
 	if (error) {
-		router.push('/walletError');
+		console.log(error);
 	}
 
 	return (
@@ -78,12 +78,9 @@ const Navbar = () => {
 								Sign out{' '}
 							</button>
 						) : (
-							<button
-								className={theme.signInButton}
-								onClick={() => router.push('/Login')}>
-								{' '}
-								Sign In{' '}
-							</button>
+							<Link href="/Login">
+								<button className={theme.signInButton}> Sign In </button>
+							</Link>
 						)}
 					</div>
 				</div>
