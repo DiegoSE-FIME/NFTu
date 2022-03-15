@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { theme } from './tailwindClasses';
 
-const Header = () => {
+export const Body = () => {
 	return (
 		<div className={theme.bodyDiv}>
 			<div className="hidden xl:block xl:px-20 xl:py-11">
@@ -30,5 +30,3 @@ const Header = () => {
 		</div>
 	);
 };
-
-export default Header;

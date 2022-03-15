@@ -7,8 +7,7 @@ import { useRouter } from 'next/router';
 import { AuthContext } from '../context/AuthContext';
 import { theme } from './tailwindClasses';
 
-const Navbar = () => {
-	const router = useRouter();
+export const Navbar = () => {
 	const { firebaseUser, signOutUser } = useContext(AuthContext);
 	const { activate, active, deactivate, error } = useWeb3React();
 
@@ -32,7 +31,7 @@ const Navbar = () => {
 				<div className="container flex flex-wrap justify-between items-center mx-auto ">
 					<Link href="/">
 						<a className="flex items-center whitespace-nowrap px-4">
-							<span className={styles.logo}>NFTu</span>
+							<span className={styles.logo}>NFTu.</span>
 						</a>
 					</Link>
 
@@ -78,7 +77,7 @@ const Navbar = () => {
 								Sign out{' '}
 							</button>
 						) : (
-							<Link href="/Login">
+							<Link href="/Login" passHref>
 								<button className={theme.signInButton}> Sign In </button>
 							</Link>
 						)}
@@ -88,5 +87,3 @@ const Navbar = () => {
 		</>
 	);
 };
-
-export default Navbar;

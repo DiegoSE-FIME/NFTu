@@ -5,7 +5,7 @@ import { theme } from './tailwindClasses';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 
-const Header = () => {
+export const Header = () => {
 	const { firebaseUser } = useContext(AuthContext);
 	return (
 		<div className={theme.headerDiv}>
@@ -25,7 +25,7 @@ const Header = () => {
 				</p>
 
 				<div className="mt-5">
-					<Link href={firebaseUser ? '/marketplace' : '/Login'}>
+					<Link href={firebaseUser ? '/marketplace' : '/Login'} passHref>
 						<button className={theme.getStartedButton}>
 							Get started
 							<Image src="/assets/Line.png" alt="line" width={20} height={20} />
@@ -41,12 +41,14 @@ const Header = () => {
 					src="/gradientAqua.png"
 					width={350}
 					height={350}
-					className="blur-2xl xl:rounded-full xl:blur-lg"
+					className="blur-2xl xl:rounded-full rounded-full xl:blur-lg"
+					alt="gradient"
+					priority
 				/>
 			</div>
 			<div className={styles.image}>
 				<div className={theme.headerImage}>
-					<Link href="/marketplace">
+					<Link href="/marketplace" passHref>
 						<a>
 							<Image
 								src="/imageButton.png"
@@ -64,5 +66,3 @@ const Header = () => {
 		</div>
 	);
 };
-
-export default Header;
