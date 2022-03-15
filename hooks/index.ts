@@ -1,0 +1,1 @@
+export { useFetchNFT } from './useFetchNFT';

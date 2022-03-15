@@ -1,6 +1,6 @@
 import { AuthContext } from './AuthContext';
+import { FirebaseData, IUser } from '../interfaces';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import {
 	auth,
 	db,
@@ -9,15 +9,13 @@ import {
 	signOut,
 	addDoc,
 	collection,
-} from '../config/firebase/firebase.js';
-
-import { FirebaseData, IUser } from '../interfaces/interfaces';
+} from '../config/firebase';
 
 type AuthProviderProps = {
 	children: JSX.Element | JSX.Element[];
 };
 
-const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const [firebaseUser, setFirebaseUser] = useState<IUser | null>(null);
 	const [firebaseData, setFirebaseData] = useState<FirebaseData | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -102,5 +100,3 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 		</AuthContext.Provider>
 	);
 };
-
-export default AuthProvider;

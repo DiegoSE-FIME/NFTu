@@ -68,3 +68,118 @@ export interface ITheme {
 	path4GoogleIcon?: string;
 	pathGithubIcon?: string;
 }
+
+export interface DataResponse {
+	ownedNfts: OwnedNft[];
+	pageKey: string;
+	totalCount: number;
+	blockHash: string;
+}
+
+export interface OwnedNft {
+	contract: Contract;
+	id: ID;
+	balance: string;
+	title: string | '';
+	description: string;
+	tokenUri: TokenURI;
+	media: TokenURI[];
+	metadata: MetadataClass | string;
+	timeLastUpdated: string;
+	error?: Error;
+}
+
+export interface Contract {
+	address: string;
+}
+
+export enum Error {
+	TokenDoesNotExist = 'Token does not exist',
+}
+
+export interface ID {
+	tokenId: string;
+	tokenMetadata: TokenMetadata;
+}
+
+export interface TokenMetadata {
+	tokenType: TokenType;
+}
+
+export enum TokenType {
+	Erc721 = 'ERC721',
+}
+
+export interface TokenURI {
+	raw: string;
+	gateway: string;
+}
+
+export interface MetadataClass {
+	name?: string;
+	description?: string;
+	image?: string;
+	external_url?: string;
+	dna?: string;
+	attributes?: Attribute[];
+	animation_url?: string;
+	id?: string;
+	external_link?: string;
+	aspect_ratio?: number;
+	traits?: Trait[];
+	tokenID?: string;
+	generator_url?: string;
+	artist?: string;
+	platform?: string;
+	features?: Features;
+	payout_address?: string;
+	token_hash?: string;
+	project_id?: string;
+	is_static?: boolean;
+	website?: string;
+	royaltyInfo?: RoyaltyInfo;
+	interactive_nft?: InteractiveNft;
+	license?: string;
+	series?: number;
+	curation_status?: string;
+	script_type?: string;
+	collection_name?: string;
+}
+
+export interface Attribute {
+	value: number | string;
+	trait_type: string;
+}
+
+export interface Features {
+	Type: string;
+	'Start Color': number;
+	'Steps Between': string;
+	Segments: number;
+	Height: string;
+	'Color Spread': string;
+	'Color Direction': string;
+	Spectrum: string;
+	'End Color': number;
+}
+
+export interface InteractiveNft {
+	version: string;
+	code_uri: string;
+}
+
+export interface RoyaltyInfo {
+	additionalPayeePercentage: string;
+	artistAddress: string;
+	additionalPayee: string;
+	royaltyFeeByID: string;
+}
+
+export interface Trait {
+	value: string;
+	trait_type: TraitType;
+}
+
+export enum TraitType {
+	ChromieSquiggle = 'Chromie Squiggle',
+}
