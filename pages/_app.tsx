@@ -2,8 +2,8 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { getLibrary } from '../config/web3';
 import { Web3ReactProvider } from '@web3-react/core';
-import Navbar from '../components/Navbar';
-import AuthProvider from '../context/AuthProvider';
+import { Navbar } from '../components';
+import { AuthProvider } from '../context';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (

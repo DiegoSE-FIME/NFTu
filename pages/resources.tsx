@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { PageLayout } from '../components/PageLayout';
+import { PageLayout } from '../components/';
 
 const resources: NextPage = () => {
 	return (
