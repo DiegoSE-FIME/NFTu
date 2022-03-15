@@ -6,7 +6,11 @@ const nextConfig = {
 module.exports = {
 	nextConfig,
 	images: {
-		// google user image url
-		domains: ['lh3.googleusercontent.com'],
+		domains: [
+			'lh3.googleusercontent.com',
+			'clonex-assets.rtfkt.com',
+			'ipfs.io',
+			'via.placeholder.com',
+		],
 	},
 };
