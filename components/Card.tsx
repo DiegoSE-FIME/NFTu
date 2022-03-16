@@ -15,14 +15,9 @@ export const Card = ({ title, image, link, address, name }: CardProps) => {
 			<div className="max-w-xs border border-teal-700 shadow-md mb-5">
 				<div className="p-5">
 					{image ? (
-						<Image
-							src={image ? image : 'https://via.placeholder.com/300x200'}
-							alt={title}
-							width={400}
-							height={350}
-						/>
+						<Image src={image} alt={title} width={400} height={350} />
 					) : (
-						<div className="text-center">Loading...</div>
+						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}
 				</div>
 				<div className="grid grid-cols-2">
