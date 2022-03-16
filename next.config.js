@@ -11,6 +11,8 @@ module.exports = {
 			'clonex-assets.rtfkt.com',
 			'ipfs.io',
 			'via.placeholder.com',
+			'api.thesharkmob.com',
+			'storage.googleapis.com',
 		],
 	},
 };
