@@ -1,6 +1,6 @@
 import { Galleries } from './Galleries';
 import Image from 'next/image';
-import { theme } from '../theme';
+import { theme } from './tailwindClasses';
 
 export const Body = () => {
 	return (

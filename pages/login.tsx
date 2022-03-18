@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { theme } from '../theme/';
+import { theme } from '../components/tailwindClasses';
 import { AuthContext } from '../context';
 import { useContext } from 'react';
 import Link from 'next/link';

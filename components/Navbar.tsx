@@ -4,7 +4,7 @@ import { useCallback, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
 import { AuthContext } from '../context/AuthContext';
-import { theme } from '../theme';
+import { theme } from './tailwindClasses';
 
 export const Navbar = () => {
 	const { firebaseUser, signOutUser } = useContext(AuthContext);
