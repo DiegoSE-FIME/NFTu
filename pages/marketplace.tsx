@@ -1,33 +1,26 @@
-import { Card } from '../components';
+import { Card, CircleLoader } from '../components';
 import { NextPage } from 'next';
 import { PageLayout } from '../components';
-import { Key } from 'swr';
 import { useFetchNFT } from '../hooks';
 import { DataResponse, OwnedNft } from '../interfaces';
 
 const Marketplace: NextPage = () => {
-	const apiKey: Key = 'z6-SaAgm7QbsR3nNeob_oO6iIfHcLIV-';
-	const baseURL: string = `https://eth-mainnet.alchemyapi.io/v2/${apiKey}/getNFTs`;
 	const ownerAddr: string = '0x7217bc604476859303a27f111b187526231a300c';
-	const options = {
-		method: 'GET',
-		url: `${baseURL}?=owner=${ownerAddr}`,
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	};
-	const { url } = options;
-	const { data } = useFetchNFT(url);
-	const { ownedNfts } = (data as DataResponse) || '';
-	console.log(ownedNfts);
+	const { data } = useFetchNFT(ownerAddr);
+	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
+
 	return !data ? (
-		<h2 className="flex justify-center">Loading...</h2>
+		<h2 className="flex justify-center">
+			<CircleLoader />
+		</h2>
 	) : (
 		<>
 			<PageLayout title="NFTu - Marketplace">
-				<h1 className="text-center">Marketplace</h1>
-				<div className="flex justify-center">
-					<div className="xl:grid xl:gap-x-8 xl:gap-y-4 xl:grid-cols-3 mt-11">
+				<h1 className="text-bold text-3xl xl:m-11 xl:text-left text-center mt-11">
+					Trending .
+				</h1>
+				<div className="flex m-14 justify-center">
+					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4">
 						{ownedNfts.slice(18, 22).map((nft: OwnedNft) => (
 							<Card
 								key={nft.id.tokenId}
