@@ -1,12 +1,23 @@
-import { useState } from 'react';
-import useSWR from 'swr';
-import { DataResponse, OwnedNft } from '../interfaces';
-import { Fetcher } from 'swr';
+import { Options } from '../interfaces';
+import useSWR, { Key, Fetcher } from 'swr';
 import axios, { AxiosResponse } from 'axios';
+import { DataResponse } from '../interfaces';
 
-export const useFetchNFT = (url: string) => {
+export const useFetchNFT = (ownerAddr: string) => {
+	const apiKey: Key = 'z6-SaAgm7QbsR3nNeob_oO6iIfHcLIV-';
+	const baseURL: string = `https://eth-mainnet.alchemyapi.io/v2/${apiKey}/getNFTs`;
+	const options: Options = {
+		method: 'GET',
+		url: `${baseURL}?=owner=${ownerAddr}`,
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
+
+	const { url } = options;
+
 	const fetcher: Fetcher = async (url: string) => {
-		const response: AxiosResponse = await axios.get(url);
+		const response: AxiosResponse = await axios.get(url, options);
 		return response.data;
 	};
 
