@@ -1,3 +1,5 @@
+import { Method } from 'axios';
+
 export interface IAuthContext {
 	firebaseUser: FirebaseData | null;
 	firebaseData: FirebaseData | null;
@@ -182,4 +184,10 @@ export interface Trait {
 
 export enum TraitType {
 	ChromieSquiggle = 'Chromie Squiggle',
+}
+
+export interface Options {
+	method: Method;
+	url: string;
+	headers: { [key: string]: string };
 }
