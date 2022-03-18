@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
-import { theme } from '../components/tailwindClasses';
-import { AuthContext } from '../context/AuthContext';
+import { theme } from '../theme';
+import { AuthContext } from '../context';
 import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PageLayout } from '../components/PageLayout';
+import { PageLayout } from '../components';
 const Login: NextPage = () => {
 	const { signInWithGoogle, firebaseUser } = useContext(AuthContext);
 
