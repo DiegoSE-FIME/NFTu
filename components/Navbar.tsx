@@ -3,9 +3,8 @@ import Link from 'next/link';
 import { useCallback, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
-import { useRouter } from 'next/router';
 import { AuthContext } from '../context/AuthContext';
-import { theme } from './tailwindClasses';
+import { theme } from '../theme';
 
 export const Navbar = () => {
 	const { firebaseUser, signOutUser } = useContext(AuthContext);

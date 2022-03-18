@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
-import { theme } from './tailwindClasses';
+import { theme } from '../theme';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 
