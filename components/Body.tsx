@@ -1,6 +1,7 @@
 import { Galleries } from './Galleries';
 import Image from 'next/image';
 import { theme } from './tailwindClasses';
+import { Footer } from './Footer';
 
 export const Body = () => {
 	return (
@@ -31,6 +32,7 @@ export const Body = () => {
 				</div>
 			</div>
 			<Galleries />
+			<Footer />
 		</>
 	);
 };
