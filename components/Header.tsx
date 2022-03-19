@@ -7,6 +7,7 @@ import { useContext } from 'react';
 
 export const Header = () => {
 	const { firebaseUser } = useContext(AuthContext);
+
 	return (
 		<div className={theme.headerDiv}>
 			<div className={theme.headerStars}>
@@ -25,7 +26,7 @@ export const Header = () => {
 				</p>
 
 				<div className="mt-5">
-					<Link href={firebaseUser ? '/marketplace' : '/Login'} passHref>
+					<Link href={firebaseUser ? '/marketplace' : '/login'} passHref>
 						<button className={theme.getStartedButton}>
 							Get started
 							<Image src="/assets/Line.png" alt="line" width={20} height={20} />

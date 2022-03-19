@@ -13,6 +13,9 @@ module.exports = {
 			'via.placeholder.com',
 			'api.thesharkmob.com',
 			'storage.googleapis.com',
+			'unsplash.com',
+			'd1xxei964ioe0z.cloudfront.net',
+			'metadata.nanopass.io',
 		],
 	},
 };

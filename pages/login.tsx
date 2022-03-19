@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout } from '../components';
+
 const Login: NextPage = () => {
 	const { signInWithGoogle, firebaseUser } = useContext(AuthContext);
 
@@ -12,10 +13,9 @@ const Login: NextPage = () => {
 		<PageLayout title="NFTu - Login">
 			<div className="h-full w-full py-9 px-4">
 				<div className="flex flex-col items-center justify-center">
-					<div className="shadow rounded border border-teal-400 lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+					<div className="shadow rounded border border-slate-400 lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
 						<p
 							tabIndex={0}
-							role="heading"
 							aria-label="Login to your account"
 							className="text-2xl font-extrabold leading-6 text-white-800">
 							Login to your account

@@ -12,7 +12,7 @@ type CardProps = {
 export const Card = ({ title, image, link, address, name }: CardProps) => {
 	return (
 		<>
-			<div className="max-w-xs border border-slate-700 shadow-md mb-5">
+			<div className="xl:max-w-xs border border-slate-700 shadow-md mb-5">
 				<div className="p-5">
 					{image ? (
 						<Image src={image} alt={title} width={500} height={450} />
@@ -23,7 +23,7 @@ export const Card = ({ title, image, link, address, name }: CardProps) => {
 				<div className="grid grid-cols-2">
 					<div className="py-0 px-5 w-80">
 						<Link href="marketplace/[id]" passHref>
-							<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-100">
+							<h5 className="mb-2 xl:text-2xl font-bold tracking-tight text-gray-900 dark:text-slate-100 text-normal">
 								{title}
 							</h5>
 						</Link>
@@ -31,7 +31,7 @@ export const Card = ({ title, image, link, address, name }: CardProps) => {
 							By <span className="text-indigo-500">{name}</span>
 						</p>
 
-						<div className="w-40">
+						<div className="xl:w-40 w-28">
 							<Link href={link} passHref>
 								<a target="_blank">
 									<p className="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate whitespace-nowrap overflow-hidden">
