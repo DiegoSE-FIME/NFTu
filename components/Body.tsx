@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { theme } from './tailwindClasses';
 import { Footer } from './Footer';
 
-export const Body = () => {
+export const Body: React.FC = () => {
 	return (
 		<>
 			<div className={theme.bodyDiv}>
@@ -23,10 +23,12 @@ export const Body = () => {
 					</div>
 					<div className="xl:mt-5 xl:w-[500px] w-96 px-5 xl:px-0">
 						<p className={theme.headerDescription}>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Aspernatur cum ullam obcaecati non possimus! Nihil inventore
-							aspernatur corporis quia architecto et voluptate molestias
-							officia, illo doloribus. Nemo ex quaerat nihil.
+							Marketplace for crypto collectibles with a focus on the Ethereum
+							blockchain. Ethereum is open access to digital money and
+							data-friendly services for everyone – no matter your background or
+							location. It's a community-built technology behind the
+							cryptocurrency ether (ETH) and thousands of applications you can
+							use today.
 						</p>
 					</div>
 				</div>

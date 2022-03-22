@@ -1,7 +1,7 @@
 import { Carousel } from './Carousel';
 import Image from 'next/image';
 import { useFetchNFT } from '../hooks';
-import { DataResponse, OwnedNft } from '../interfaces';
+import { DataResponse } from '../interfaces';
 import { CarouselImages } from './CarouselImages';
 
 export const Galleries = () => {
@@ -11,7 +11,7 @@ export const Galleries = () => {
 	const images: string[] = [
 		'/secondCarousel.png',
 		'/sixthCarousel.png',
-		'/third.gif',
+		'/thirdCarousel.png',
 		'/fourthCarousel.png',
 		'/fifthCarousel.png',
 		'/firstCarousel.png',

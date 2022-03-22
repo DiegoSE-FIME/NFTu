@@ -1,23 +1,15 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { DataResponse, OwnedNft } from '../interfaces';
+import { CarouselProps } from '../interfaces';
 import styles from './Carousel.module.css';
 
-interface CarouselProps {
-	data?: DataResponse | undefined;
-	from?: number;
-	to?: number;
-	nfts: OwnedNft[];
-	images?: string[];
-}
-
-export const Carousel = ({ data, from, to, nfts }: CarouselProps) => {
+export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 	return !data ? (
 		<div className="flex justify-center">
 			<h2>Loading...</h2>
 		</div>
 	) : (
-		<motion.div className="carousel container cursor-grab overflow-hidden">
+		<motion.div className="carousel container cursor-grab overflow-hidden ml-5">
 			<motion.div
 				drag="x"
 				dragConstraints={{

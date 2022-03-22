@@ -68,6 +68,7 @@ const Login: NextPage = () => {
 					width={100}
 					height={100}
 					className={theme.profileImage}
+					alt="Profile"
 				/>
 			</div>
 			<div className="mt-5 text-center flex justify-center items-center">

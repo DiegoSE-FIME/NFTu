@@ -5,7 +5,7 @@ import { theme } from './tailwindClasses';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 
-export const Header = () => {
+export const Header: React.FC = () => {
 	const { firebaseUser } = useContext(AuthContext);
 
 	return (
@@ -19,14 +19,12 @@ export const Header = () => {
 					A platform to find your digital unique rarity
 				</h1>
 				<p className={theme.headerDescription}>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa
-					voluptatem expedita asperiores voluptate quaerat cupiditate unde ipsa,
-					natus eum inventore beatae quos quod nam, accusamus molestiae ut alias
-					placeat vitae.
+					Find extraordinary NFTs and collect them in your own collection, list
+					them for sale or share them with your friends.
 				</p>
 
 				<div className="mt-5">
-					<Link href={firebaseUser ? '/marketplace' : '/login'} passHref>
+					<Link href="#resources" passHref>
 						<button className={theme.getStartedButton}>
 							Get started
 							<Image src="/assets/Line.png" alt="line" width={20} height={20} />
@@ -42,7 +40,7 @@ export const Header = () => {
 					src="/gradientAqua.png"
 					width={350}
 					height={350}
-					className="blur-2xl xl:rounded-full rounded-full xl:blur-lg"
+					className="rounded-full"
 					alt="gradient"
 					priority
 				/>

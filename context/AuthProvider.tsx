@@ -23,7 +23,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 	const signInWithGoogle = async () => {
 		const result = await signInWithPopup(auth, provider);
 		if (result.user) {
-			const user = result.user;
+			const { user } = result;
 			const userData: IUser = {
 				uid: user?.uid,
 				email: user?.email || '',

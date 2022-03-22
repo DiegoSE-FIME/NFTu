@@ -2,10 +2,14 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './Carousel.module.css';
 
-export const CarouselImages = ({ images }: { images: string[] }) => {
+type CarouselImages = {
+	images: string[];
+};
+
+export const CarouselImages: React.FC<CarouselImages> = ({ images }) => {
 	return (
 		<>
-			<motion.div className="carousel container cursor-grab overflow-hidden xl:-ml-[50px] -ml-[20px]">
+			<motion.div className="carousel container cursor-grab overflow-hidden xl:-ml-[50px]">
 				<motion.div
 					drag="x"
 					dragConstraints={{
@@ -18,7 +22,7 @@ export const CarouselImages = ({ images }: { images: string[] }) => {
 						return (
 							<motion.div
 								key={index}
-								className="xl:p-5 xl:min-w-fit min-w-full item xl:ml-0 -ml-[10px]">
+								className="xl:p-5 xl:min-w-fit min-w-full item xl:ml-0 ml-5">
 								<Image
 									src={image}
 									alt="carousel"

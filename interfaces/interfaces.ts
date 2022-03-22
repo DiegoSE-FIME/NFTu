@@ -191,3 +191,11 @@ export interface Options {
 	url: string;
 	headers: { [key: string]: string };
 }
+
+export interface CarouselProps {
+	data?: DataResponse | undefined;
+	from?: number;
+	to?: number;
+	nfts: OwnedNft[];
+	images?: string[];
+}

@@ -3,17 +3,22 @@ import Link from 'next/link';
 import { useCallback, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
+import { useRouter } from 'next/router';
 import { AuthContext } from '../context/AuthContext';
 import { theme } from './tailwindClasses';
 
 export const Navbar = () => {
 	const { firebaseUser, signOutUser } = useContext(AuthContext);
 	const { activate, active, deactivate, error } = useWeb3React();
-
+	const router = useRouter();
 	const connectWallet = useCallback(() => {
-		activate(connector);
-		localStorage.setItem('previouslyConnected', 'true');
-	}, [activate]);
+		if (typeof window.ethereum !== 'undefined') {
+			activate(connector);
+			localStorage.setItem('previouslyConnected', 'true');
+		} else {
+			router.push('/walletError');
+		}
+	}, [activate, router]);
 
 	const disconnectWallet = () => {
 		deactivate();
@@ -76,7 +81,7 @@ export const Navbar = () => {
 								Sign out{' '}
 							</button>
 						) : (
-							<Link href="/Login" passHref>
+							<Link href="/login" passHref>
 								<button className={theme.signInButton}> Sign In </button>
 							</Link>
 						)}

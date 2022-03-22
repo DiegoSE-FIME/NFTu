@@ -14,7 +14,7 @@ export const theme: ITheme = {
 	getStartedButton:
 		'inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
 	placeABidButton:
-		'absolute outline outline-1 outline-black-400 bg-white text-black rounded items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-600 hover:text-white',
+		'absolute outline outline-1 outline-slate-400 text-white rounded-full items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-600 hover:text-white',
 	howItWorksButton: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
 	headerImage: 'w-40 z-40 absolute top-[25%] right-[32%] hidden xl:block',
 	path1GoogleIcon:
@@ -36,6 +36,6 @@ export const theme: ITheme = {
 	bodyTitle:
 		'text-2xl px-5 text-bold xl:text-bold w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
 	gradientAqua:
-		'absolute top-[100px] right-0 blur-xl xl:absolute xl:right-9 xl:top-[15%] rounded-full xl:rounded-full xl:blur-sm ',
+		'absolute top-[100px] right-0 xl:absolute xl:right-9 xl:top-[15%] rounded-full opacity-100  blur-2xl',
 	profileImage: 'w-32 h-32 rounded-full mx-auto',
 };
