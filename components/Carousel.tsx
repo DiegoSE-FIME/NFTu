@@ -7,11 +7,11 @@ interface CarouselProps {
 	data?: DataResponse | undefined;
 	from?: number;
 	to?: number;
-	nfts?: OwnedNft[];
+	nfts: OwnedNft[];
 	images?: string[];
 }
 
-export const Carousel = ({ data, from, to, nfts, images }: CarouselProps) => {
+export const Carousel = ({ data, from, to, nfts }: CarouselProps) => {
 	return !data ? (
 		<div className="flex justify-center">
 			<h2>Loading...</h2>
@@ -22,7 +22,7 @@ export const Carousel = ({ data, from, to, nfts, images }: CarouselProps) => {
 				drag="x"
 				dragConstraints={{
 					right: 0,
-					left: -nfts?.slice(from, to)?.length * 100 || -images?.length * 100,
+					left: -nfts?.slice(from, to).length * 100,
 				}}
 				className="inner-carousel flex">
 				{nfts?.slice(from, to).map((nft, index) => {
