@@ -1,13 +1,17 @@
-import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useFetchNFT } from '../hooks';
-import { DataResponse } from '../interfaces';
+import { motion } from 'framer-motion';
+import { DataResponse, OwnedNft } from '../interfaces';
+import styles from './Carousel.module.css';
 
-export const Carousel = () => {
-	const ownerAddr = '0xbf9bca75b5a8c458dd73285b04b894e93efdf432';
-	const { data } = useFetchNFT(ownerAddr);
-	const { ownedNfts } = (data as DataResponse) || { OwnedNft: [] };
+interface CarouselProps {
+	data?: DataResponse | undefined;
+	from?: number;
+	to?: number;
+	nfts?: OwnedNft[];
+	images?: string[];
+}
 
+export const Carousel = ({ data, from, to, nfts, images }: CarouselProps) => {
 	return !data ? (
 		<div className="flex justify-center">
 			<h2>Loading...</h2>
@@ -16,17 +20,22 @@ export const Carousel = () => {
 		<motion.div className="carousel container cursor-grab overflow-hidden">
 			<motion.div
 				drag="x"
-				dragConstraints={{ right: 0, left: -(6 - 1) * 100 }}
+				dragConstraints={{
+					right: 0,
+					left: -nfts?.slice(from, to)?.length * 100 || -images?.length * 100,
+				}}
 				className="inner-carousel flex">
-				{ownedNfts.slice(8, 13).map((nft, index) => {
+				{nfts?.slice(from, to).map((nft, index) => {
 					return (
-						<motion.div key={index} className="p-5 min-w-fit">
+						<motion.div
+							key={index}
+							className="xl:p-5 xl:min-w-fit min-w-full item">
 							<Image
 								src={nft.media[0].gateway}
 								alt="carousel"
 								width={320}
 								height={350}
-								className="rounded carousel-image"
+								className={styles.image}
 							/>
 						</motion.div>
 					);

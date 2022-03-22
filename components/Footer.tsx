@@ -9,28 +9,36 @@ export const Footer = () => {
 				</h3>
 			</div>
 			<div className="grid justify-items-center xl:grid-cols-3 mt-11 mb-11 grid-cols-1">
-				<div className="w-80">
+				<div className="w-80 text-center">
 					<div className="flex justify-center">
 						<Image src="/bitcoin-card.png" width={24} height={24} alt="icon" />
 					</div>
-					<p className="text-bold text-center mb-3">Setup your wallet</p>
-					<span className="text-gray-400 mt-2 text-center">
+					<p className="text-bold text-center mb-3">
+						Setup your wallet (Desktop only)
+					</p>
+					<span className="text-gray-400 mt-2">
 						Once you’ve set up your wallet of choice, connect it to NFTu by
 						clicking the connect wallet button in the top right corner.
 					</span>
 				</div>
-				<div className="w-80 xl:mt-0 mt-3">
+				<div className="w-80 xl:mt-0 mt-5 text-center">
 					<div className="flex justify-center">
-						<Image src="/gallery-add.png" width={24} height={24} alt="icon" />
+						<Image
+							src="/gallery-add.png"
+							width={24}
+							height={24}
+							alt="icon"
+							layout="fixed"
+						/>
 					</div>
 					<p className="text-bold text-center mb-3">Add your NFTs</p>
-					<span className="text-gray-400 mt-2 text-center">
+					<span className="text-gray-400 mt-2">
 						Upload your work (image, video, audio, or 3D art), add a title and
 						description, and customize your NFTs with properties, stats, and
 						unlockable content.{' '}
 					</span>
 				</div>
-				<div className="w-80 xl:mt-0 mt-3">
+				<div className="w-80 xl:mt-0 mt-5 text-center">
 					<div className="flex justify-center">
 						<Image
 							src="/bitcoin-convert.png"
@@ -40,7 +48,7 @@ export const Footer = () => {
 						/>
 					</div>
 					<p className="text-bold text-center mb-3">List them for sale</p>
-					<span className="text-gray-400 mt-2 text-center">
+					<span className="text-gray-400 mt-2">
 						Choose between auctions, fixed-price listings, and declining-price
 						listings. You choose how you want to sell your NFTs, and we help you
 						sell them!{' '}

@@ -27,7 +27,7 @@ export const Navbar = () => {
 	return (
 		<>
 			<nav className="px-2 sm:px-4 py-2.5">
-				<div className="container flex flex-wrap justify-between items-center mx-auto ">
+				<div className="container flex flex-wrap justify-between items-center mx-auto">
 					<Link href="/">
 						<a className="flex items-center whitespace-nowrap px-4">
 							<span className={styles.logo}>NFTu.</span>
@@ -80,6 +80,25 @@ export const Navbar = () => {
 								<button className={theme.signInButton}> Sign In </button>
 							</Link>
 						)}
+					</div>
+				</div>
+				<div className="xl:hidden text-xs border border-gray-500">
+					<div className="flex items-center xl:ml-24 justify-center nav-links">
+						<Link href="/marketplace">
+							<a className="px-2 py-1 text-sm  text-gray-500 hover:text-teal-200">
+								Marketplace
+							</a>
+						</Link>
+						<Link href="/resources">
+							<a className="px-2 py-1 text-sm  text-gray-500 hover:text-teal-200">
+								Resources
+							</a>
+						</Link>
+						<Link href="/community">
+							<a className="px-2 py-1 text-sm  text-gray-500 hover:text-teal-200">
+								Community
+							</a>
+						</Link>
 					</div>
 				</div>
 			</nav>
