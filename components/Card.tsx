@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { item } from '../config/framer';
 
 type CardProps = {
 	title: string | undefined;
@@ -12,14 +14,19 @@ type CardProps = {
 export const Card = ({ title, image, link, address, name }: CardProps) => {
 	return (
 		<>
-			<div className="xl:max-w-xs border border-slate-700 shadow-md mb-5">
-				<div className="p-5">
+			<motion.div
+				className="xl:max-w-xs border border-slate-700 shadow-md mb-5"
+				variants={item}
+				initial="hidden"
+				animate="show"
+				exit="exit">
+				<motion.div className="p-5">
 					{image ? (
 						<Image src={image} alt={title} width={500} height={450} />
 					) : (
 						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}
-				</div>
+				</motion.div>
 				<div className="grid grid-cols-2">
 					<div className="py-0 px-5 w-80">
 						<Link href="marketplace/[id]" passHref>
@@ -45,7 +52,7 @@ export const Card = ({ title, image, link, address, name }: CardProps) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 };

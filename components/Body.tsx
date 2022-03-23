@@ -26,7 +26,7 @@ export const Body: React.FC = () => {
 							Marketplace for crypto collectibles with a focus on the Ethereum
 							blockchain. Ethereum is open access to digital money and
 							data-friendly services for everyone – no matter your background or
-							location. It's a community-built technology behind the
+							location. It&apos;s a community-built technology behind the
 							cryptocurrency ether (ETH) and thousands of applications you can
 							use today.
 						</p>

@@ -1,4 +1,4 @@
-import { Card, CircleLoader } from '../components';
+import { Card, Loader } from '../components';
 import { NextPage } from 'next';
 import { PageLayout } from '../components';
 import { useFetchNFT } from '../hooks';
@@ -8,11 +8,19 @@ const Marketplace: NextPage = () => {
 	const ownerAddr: string = '0x7217bc604476859303a27f111b187526231a300c';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
+	const nums: number[] = [1, 2, 3, 4];
 
 	return !data ? (
-		<h2 className="flex justify-center">
-			<CircleLoader />
-		</h2>
+		<>
+			<div className="flex justify-center mb-5 xl:inline-flex">
+				<div className="flex justify-center h-8 w-40 bg-gray-500 animate-pulse xl:m-11 mt-11"></div>
+			</div>
+			<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
+				{nums.map((num) => (
+					<Loader key={num} />
+				))}
+			</div>
+		</>
 	) : (
 		<>
 			<PageLayout title="NFTu - Marketplace">
