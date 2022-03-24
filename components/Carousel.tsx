@@ -16,6 +16,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 					right: 0,
 					left: -nfts?.slice(from, to).length * 100,
 				}}
+				whileDrag={{ skewX: -5 }}
 				className="inner-carousel flex">
 				{nfts?.slice(from, to).map((nft, index) => {
 					return (

@@ -18,8 +18,7 @@ export const Card = ({ title, image, link, address, name }: CardProps) => {
 				className="xl:max-w-xs border border-slate-700 shadow-md mb-5"
 				variants={item}
 				initial="hidden"
-				animate="show"
-				exit="exit">
+				animate="show">
 				<motion.div className="p-5">
 					{image ? (
 						<Image src={image} alt={title} width={500} height={450} />

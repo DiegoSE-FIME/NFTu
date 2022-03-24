@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import type { ReactElement, useEffect } from 'react';
+import type { ReactElement } from 'react';
 import { item } from '../config/framer';
 
-export const Loader = (): ReactElement => {
+export const Loader: React.FC = (): ReactElement => {
 	return (
 		<>
 			<div className="xl:max-w-xs border border-slate-700 shadow-md mb-5">

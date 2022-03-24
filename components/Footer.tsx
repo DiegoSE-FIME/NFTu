@@ -4,7 +4,7 @@ import { FooterCard } from './FooterCard';
 export const Footer = () => {
 	return (
 		<>
-			<div className="flex justify-center text-2xl mt-40">
+			<div className="flex justify-center text-2xl mt-28">
 				<h3>
 					Create and <span className="text-teal-400">sell</span> your NFTs
 				</h3>
@@ -57,7 +57,7 @@ export const Footer = () => {
 				</div>
 			</div>
 
-			<div className="flex justify-center text-2xl mt-44" id="resources">
+			<div className="flex justify-center text-2xl mt-28" id="resources">
 				<h3>Resources for getting started</h3>
 			</div>
 			<div className="grid xl:grid-cols-3 grid-cols-1 justify-items-center mt-14 mb-40">

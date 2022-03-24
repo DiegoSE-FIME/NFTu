@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 type Props = {
 	image: string;
@@ -7,7 +8,9 @@ type Props = {
 
 export const FooterCard: React.FC<Props> = ({ image, title }) => {
 	return (
-		<div className="max-w-xs bg-white rounded-lg mb-11 border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+		<motion.div
+			whileHover={{ scale: 0.95 }}
+			className="max-w-xs bg-white rounded-lg mb-11 border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
 			<a href="#">
 				<Image
 					className="rounded-t-lg"
@@ -39,6 +42,6 @@ export const FooterCard: React.FC<Props> = ({ image, title }) => {
 					</svg>
 				</a>
 			</div>
-		</div>
+		</motion.div>
 	);
 };

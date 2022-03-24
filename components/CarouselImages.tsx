@@ -16,6 +16,7 @@ export const CarouselImages: React.FC<CarouselImages> = ({ images }) => {
 						right: 0,
 						left: -images?.length * 100 || 0,
 					}}
+					whileDrag={{ skewX: -5 }}
 					dragPropagation
 					className="inner-carousel flex">
 					{images.map((image, index) => {
