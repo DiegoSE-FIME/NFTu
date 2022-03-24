@@ -1,6 +1,6 @@
 .image {
 	width: 400px;
-	margin: 100px 10px 10px 130px;
+	margin: 20px 10px 10px 130px;
 }
 
 @media screen and (max-width: 1050px) {

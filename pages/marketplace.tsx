@@ -21,7 +21,7 @@ const Marketplace: NextPage = () => {
 			</div>
 		</>
 	) : (
-		<div className="fixed h-full w-full overflow-hidden">
+		<>
 			<PageLayout title="NFTu - Marketplace">
 				<h1 className="text-bold text-3xl xl:m-11 xl:text-left text-center mt-11">
 					Trending .
@@ -41,7 +41,7 @@ const Marketplace: NextPage = () => {
 					</div>
 				</div>
 			</PageLayout>
-		</div>
+		</>
 	);
 };
 

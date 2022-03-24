@@ -9,12 +9,12 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 			<h2>Loading...</h2>
 		</div>
 	) : (
-		<motion.div className="carousel container cursor-grab overflow-hidden ml-5">
+		<motion.div className="xl:carousel xl:container xl:cursor-grab xl:overflow-hidden ml-5 grid grid-cols-2">
 			<motion.div
 				drag="x"
 				dragConstraints={{
 					right: 0,
-					left: -nfts?.slice(from, to).length * 100,
+					left: -600,
 				}}
 				whileDrag={{ skewX: -5 }}
 				className="inner-carousel flex">
@@ -22,7 +22,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 					return (
 						<motion.div
 							key={index}
-							className="xl:p-5 xl:min-w-fit min-w-full item">
+							className="xl:min-w-fit min-w-full item m-5 ml-0">
 							<Image
 								src={nft.media[0].gateway}
 								alt="carousel"

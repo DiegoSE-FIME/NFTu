@@ -16,7 +16,7 @@ export const Navbar = () => {
 			activate(connector);
 			localStorage.setItem('previouslyConnected', 'true');
 		} else {
-			router.push('/walletError');
+			router.push('/WalletError');
 		}
 	}, [activate, router]);
 

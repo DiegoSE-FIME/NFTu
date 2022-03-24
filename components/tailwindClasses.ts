@@ -14,7 +14,7 @@ export const theme: ITheme = {
 	getStartedButton:
 		'inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
 	placeABidButton:
-		'absolute outline outline-1 outline-slate-400 text-white rounded-full items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-600 hover:text-white',
+		'absolute outline outline-1 outline-slate-400 bg-black text-white rounded-full items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-900 hover:text-white',
 	howItWorksButton: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
 	headerImage: 'w-40 z-40 absolute top-[25%] right-[32%] hidden xl:block',
 	path1GoogleIcon:
@@ -30,9 +30,9 @@ export const theme: ITheme = {
 	navbarLoginButton:
 		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800 hidden xl:inline-flex',
 	signInButton:
-		'inline-flex items-center h-10 px-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800',
+		'inline-flex items-center h-10 px-5 mt-2.5 xl:mb-0 mb-5 text-indigo-100 transition-colors duration-150 bg-indigo-600 rounded-lg focus:shadow-outline hover:bg-indigo-800',
 	signOutButton:
-		'inline-flex items-center h-10 px-5 xl:m-2 m-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
+		'inline-flex items-center h-10 xl:mb-0 mb-5 px-5 xl:m-2 m-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
 	bodyTitle:
 		'text-2xl px-5 text-bold xl:text-bold w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
 	gradientAqua:

@@ -12,7 +12,7 @@ export const Footer = () => {
 			<div className="grid justify-items-center xl:grid-cols-3 mt-11 mb-11 grid-cols-1">
 				<div className="w-80 text-center">
 					<div className="flex justify-center">
-						<Image src="/bitcoin-card.png" width={24} height={24} alt="icon" />
+						<Image src="/bitcoin-card.svg" width={24} height={24} alt="icon" />
 					</div>
 					<p className="text-bold text-center mb-3">
 						Setup your wallet (Desktop only)
@@ -25,7 +25,7 @@ export const Footer = () => {
 				<div className="w-80 xl:mt-0 mt-5 text-center">
 					<div className="flex justify-center">
 						<Image
-							src="/gallery-add.png"
+							src="/gallery-add.svg"
 							width={24}
 							height={24}
 							alt="icon"
@@ -42,7 +42,7 @@ export const Footer = () => {
 				<div className="w-80 xl:mt-0 mt-5 text-center">
 					<div className="flex justify-center">
 						<Image
-							src="/bitcoin-convert.png"
+							src="/bitcoin-convert.svg"
 							width={24}
 							height={24}
 							alt="icon"

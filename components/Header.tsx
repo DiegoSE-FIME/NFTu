@@ -8,8 +8,8 @@ export const Header: React.FC = () => {
 	return (
 		<div className={theme.headerDiv}>
 			<div className={theme.headerStars}>
-				<Image src="/Star2.png" alt="Star2" width={50} height={50} />
-				<Image src="/Star.png" alt="Star" width={20} height={20} />
+				<Image src="/Star.svg" alt="Star2" width={50} height={50} />
+				<Image src="/Star2.svg" alt="Star" width={20} height={20} />
 			</div>
 			<motion.div className={theme.headerTitleDiv}>
 				<motion.div
@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
 					<Link href="/marketplace" passHref>
 						<a>
 							<Image
-								src="/imageButton.png"
+								src="/imageButton.svg"
 								width={120}
 								height={96}
 								alt="image"
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
 					</Link>
 				</div>
 				<motion.div whileHover={{ scale: 1.1 }} className={styles.info_image}>
-					<Image src="/InfoImage.png" width={350} height={350} alt="image" />
+					<Image src="/InfoImage.svg" width={350} height={450} alt="image" />
 				</motion.div>
 			</div>
 		</div>
