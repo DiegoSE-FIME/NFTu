@@ -23,7 +23,7 @@ export const CarouselImages: React.FC<CarouselImages> = ({ images }) => {
 						return (
 							<motion.div
 								key={index}
-								className="xl:px-4 xl:p-5 xl:min-w-fit min-w-full item xl:-ml-[10px] ml-5">
+								className="xl:min-w-max min-w-full item px-4 ml-0 py-4">
 								<Image
 									src={image}
 									alt="carousel"

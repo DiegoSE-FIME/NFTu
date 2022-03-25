@@ -21,27 +21,25 @@ const Marketplace: NextPage = () => {
 			</div>
 		</>
 	) : (
-		<>
-			<PageLayout title="NFTu - Marketplace">
-				<h1 className="text-bold text-3xl xl:m-11 xl:text-left text-center mt-11">
-					Trending .
-				</h1>
-				<div className="xl:flex xl:m-14 justify-center m-5">
-					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
-						{ownedNfts.slice(18, 22).map((nft: OwnedNft) => (
-							<Card
-								key={nft.id.tokenId}
-								image={nft.media[0].gateway}
-								title={nft.title}
-								name="NFTu"
-								address={nft.contract.address}
-								link="https://opensea.io/"
-							/>
-						))}
-					</div>
+		<PageLayout title="NFTu - Marketplace">
+			<h1 className="text-bold text-3xl xl:m-11 xl:text-left text-center mt-11">
+				Trending .
+			</h1>
+			<div className="xl:flex xl:m-14 justify-center m-5">
+				<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
+					{ownedNfts.slice(18, 22).map((nft: OwnedNft) => (
+						<Card
+							key={nft.id.tokenId}
+							image={nft.media[0].gateway}
+							title={nft.title}
+							name="NFTu"
+							address={nft.contract.address}
+							link="https://opensea.io/"
+						/>
+					))}
 				</div>
-			</PageLayout>
-		</>
+			</div>
+		</PageLayout>
 	);
 };
 

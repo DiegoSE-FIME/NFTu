@@ -22,7 +22,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 					return (
 						<motion.div
 							key={index}
-							className="xl:min-w-fit min-w-full item m-5 ml-0">
+							className="xl:min-w-max min-w-full item px-4 ml-0">
 							<Image
 								src={nft.media[0].gateway}
 								alt="carousel"

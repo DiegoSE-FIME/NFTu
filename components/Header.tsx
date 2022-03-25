@@ -7,24 +7,35 @@ import { theme } from './tailwindClasses';
 export const Header: React.FC = () => {
 	return (
 		<div className={theme.headerDiv}>
-			<div className={theme.headerStars}>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				className={theme.headerStars}>
 				<Image src="/Star.svg" alt="Star2" width={50} height={50} />
 				<Image src="/Star2.svg" alt="Star" width={20} height={20} />
-			</div>
+			</motion.div>
 			<motion.div className={theme.headerTitleDiv}>
 				<motion.div
-					initial={{ y: 310 }}
-					animate={{ y: 0 }}
-					transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}>
+					initial={{ opacity: 0, y: -180 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{
+						ease: 'easeInOut',
+						duration: 1,
+						delay: 0.6,
+					}}>
 					<h1 className={theme.headerTitle}>
 						A platform to find your digital unique rarity.
 					</h1>
 				</motion.div>
 
 				<motion.div
-					initial={{ y: 310 }}
-					animate={{ y: 0 }}
-					transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}>
+					initial={{ opacity: 0, y: -180 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{
+						ease: 'easeInOut',
+						duration: 1,
+						delay: 0.6,
+					}}>
 					<p className={theme.headerDescription}>
 						Find extraordinary NFTs and collect them in your own collection,
 						list them for sale or share them with your friends.
@@ -54,7 +65,7 @@ export const Header: React.FC = () => {
 				/>
 			</div>
 			<div className={styles.image}>
-				<div className={theme.headerImage}>
+				<motion.div className={theme.headerImage} whileHover={{ scale: 1.1 }}>
 					<Link href="/marketplace" passHref>
 						<a>
 							<Image
@@ -65,10 +76,10 @@ export const Header: React.FC = () => {
 							/>
 						</a>
 					</Link>
-				</div>
-				<motion.div whileHover={{ scale: 1.1 }} className={styles.info_image}>
-					<Image src="/InfoImage.svg" width={350} height={450} alt="image" />
 				</motion.div>
+				<div className={styles.info_image}>
+					<Image src="/InfoImage.svg" width={350} height={450} alt="image" />
+				</div>
 			</div>
 		</div>
 	);
