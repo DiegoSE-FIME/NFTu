@@ -4,3 +4,6 @@ export { Header } from './Header';
 export { Navbar } from './Navbar';
 export { PageLayout } from './PageLayout';
 export { Loader } from './Loader';
+export { CarouselImages } from './CarouselImages';
+export { CardImages } from './CardImages';
+export { Modal } from './Modal';
