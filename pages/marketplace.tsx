@@ -4,15 +4,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useFetchNFT } from '../hooks';
 import { DataResponse, OwnedNft } from '../interfaces';
 import { descriptions, images, topArtistsImages } from '../utils';
-import { Card, Loader, PageLayout, CardImages, Modal } from '../components';
-import { CardModal } from '../components/CardModal';
+import {
+	Card,
+	Loader,
+	PageLayout,
+	CardImages,
+	Modal,
+	CardModal,
+} from '../components';
 
-const Marketplace: NextPage = () => {
+const Marketplace: NextPage = (): JSX.Element => {
 	const [selectedId, setSelectedId] = useState(null as string | null);
 	const ownerAddr: string = '0x7217bc604476859303a27f111b187526231a300c';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
 	const nums: number[] = [1, 2, 3, 4];
+
 	return !data ? (
 		<>
 			<div className="flex justify-center mb-5 xl:inline-flex">

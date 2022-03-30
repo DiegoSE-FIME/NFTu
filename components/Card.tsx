@@ -11,7 +11,13 @@ type CardProps = {
 	name: string | undefined;
 };
 
-export const Card = ({ title, image, link, address, name }: CardProps) => {
+export const Card = ({
+	title,
+	image,
+	link,
+	address,
+	name,
+}: CardProps): JSX.Element => {
 	return (
 		<>
 			<motion.div

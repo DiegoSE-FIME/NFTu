@@ -7,3 +7,4 @@ export { Loader } from './Loader';
 export { CarouselImages } from './CarouselImages';
 export { CardImages } from './CardImages';
 export { Modal } from './Modal';
+export { CardModal } from './CardModal';
