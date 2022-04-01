@@ -1,4 +1,4 @@
-export const images: string[] = [
+export const images = [
 	'/forYou.png',
 	'/forYou2.png',
 	'/forYou3.png',

@@ -15,10 +15,11 @@ import {
 
 const Marketplace: NextPage = (): JSX.Element => {
 	const [selectedId, setSelectedId] = useState(null as string | null);
-	const ownerAddr: string = '0x7217bc604476859303a27f111b187526231a300c';
+	const ownerAddr: string = '0xfAE46f94Ee7B2Acb497CEcAFf6Cff17F621c693D';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
 	const nums: number[] = [1, 2, 3, 4];
+	console.log(data);
 
 	return !data ? (
 		<>
@@ -38,8 +39,8 @@ const Marketplace: NextPage = (): JSX.Element => {
 					Trending.
 				</h1>
 				<div className="xl:flex xl:m-14 justify-center m-5">
-					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
-						{ownedNfts.slice(18, 22).map((nft: OwnedNft) => (
+					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2 gap-x-2">
+						{ownedNfts.slice(1, 5).map((nft: OwnedNft) => (
 							<div key={nft.id.tokenId}>
 								<motion.div
 									layoutId={nft.id.tokenId}
@@ -86,14 +87,15 @@ const Marketplace: NextPage = (): JSX.Element => {
 				<div className="xl:flex xl:m-14 justify-center m-5">
 					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
 						{images.map((image, index) => (
-							<CardImages
-								key={index}
-								image={image}
-								title="NFTu"
-								link="https://opensea.io/"
-								name="NFTu"
-								address="0xed5af388653567af2f388e6224dc7c4b3241c544"
-							/>
+							<motion.div key={index} onClick={() => setSelectedId(image)}>
+								<CardImages
+									image={image}
+									title="NFTu"
+									link="https://opensea.io/"
+									name="NFTu"
+									address="0xed5af388653567af2f388e6224dc7c4b3241c544"
+								/>
+							</motion.div>
 						))}
 					</div>
 				</div>

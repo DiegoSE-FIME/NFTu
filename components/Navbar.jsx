@@ -51,7 +51,7 @@ export const Navbar = () => {
 							</a>
 						</Link>
 						<Link href="/community">
-							<a className="px-2 py-1 text-sm  text-white-500 hover:text-teal-200">
+							<a className="px-2 py-1 text-sm  text-white-500 hover:text-gray-200">
 								Community
 							</a>
 						</Link>
@@ -87,7 +87,7 @@ export const Navbar = () => {
 						)}
 					</div>
 				</div>
-				<div className="xl:hidden text-xs border border-gray-500 mt-5">
+				<div className="xl:hidden text-xs border border-gray-500 mt-3 sticky">
 					<div className="flex items-center xl:ml-24 justify-center nav-links">
 						<Link href="/marketplace">
 							<a className="px-2 py-1 text-sm  text-gray-500 hover:text-teal-200">

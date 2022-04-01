@@ -14,7 +14,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 				drag="x"
 				dragConstraints={{
 					right: 0,
-					left: -600,
+					left: -300,
 				}}
 				whileDrag={{ skewX: -5 }}
 				className="inner-carousel flex">
@@ -22,7 +22,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 					return (
 						<motion.div
 							key={index}
-							className="xl:min-w-max min-w-full item px-4 ml-0">
+							className="xl:min-w-max min-w-full item px-4 xl:ml-0 -ml-5">
 							<Image
 								src={nft.media[0].gateway}
 								alt="carousel"

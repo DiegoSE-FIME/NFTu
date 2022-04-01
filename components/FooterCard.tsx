@@ -10,7 +10,7 @@ export const FooterCard: React.FC<Props> = ({ image, title }) => {
 	return (
 		<motion.div
 			whileHover={{ scale: 0.95 }}
-			className="max-w-xs bg-white rounded-lg mb-11 border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+			className="max-w-xs rounded-lg mb-11 border border-gray-200 shadow-md  dark:border-gray-700">
 			<a href="#">
 				<Image
 					className="rounded-t-lg"

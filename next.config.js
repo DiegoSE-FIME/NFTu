@@ -16,6 +16,9 @@ module.exports = {
 			'unsplash.com',
 			'd1xxei964ioe0z.cloudfront.net',
 			'metadata.nanopass.io',
+			'degentoonz-app-gfcxi.ondigitalocean.app',
+			'www.nuclearnerds.io',
+			'duskbreakers.gg',
 		],
 	},
 };
