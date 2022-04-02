@@ -17,3 +17,10 @@ export const item = {
 		y: -200,
 	},
 };
+
+export const transitionValues = {
+	duration: 1.5,
+	repeat: Infinity,
+	repeatType: 'reverse',
+	ease: 'easeOut',
+};

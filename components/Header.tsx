@@ -1,15 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { HeaderCard } from '../components';
 import { motion } from 'framer-motion';
 import { theme } from './tailwindClasses';
 
 export const Header: React.FC = (): JSX.Element => {
-	const transitionValues = {
-		duration: 2,
-		yoyo: Infinity,
-		ease: 'easeOut',
-	};
-
 	return (
 		<div className={theme.headerDiv}>
 			<motion.div
@@ -69,49 +64,7 @@ export const Header: React.FC = (): JSX.Element => {
 					priority
 				/>
 			</div>
-			<motion.div
-				className="w-80 z-40 absolute top-[30%] right-[16%] hidden xl:block"
-				transition={{
-					y: transitionValues,
-					width: transitionValues,
-					height: transitionValues,
-				}}
-				animate={{
-					y: ['2rem', '3rem'],
-				}}>
-				<Image src="/header-card.svg" width={500} height={500} alt="image" />
-			</motion.div>
-			<div className="grid-grid-cols-2">
-				<motion.div
-					className={theme.headerImage}
-					transition={{
-						y: transitionValues,
-						width: transitionValues,
-						height: transitionValues,
-					}}
-					animate={{
-						y: ['2rem', '3rem'],
-					}}>
-					<Image
-						src="/icon-security.svg"
-						width={200}
-						height={200}
-						alt="image"
-					/>
-				</motion.div>
-				<motion.div
-					className="w-28 z-40 absolute top-[50%] right-[8%] hidden xl:block"
-					transition={{
-						y: transitionValues,
-						width: transitionValues,
-						height: transitionValues,
-					}}
-					animate={{
-						y: ['2rem', '3rem'],
-					}}>
-					<Image src="/icon-money.svg" width={300} height={300} alt="image" />
-				</motion.div>
-			</div>
+			<HeaderCard />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { FooterCard } from './FooterCard';
+import { FooterCard } from '../components';
 
-export const Footer = () => {
+export const Footer = (): JSX.Element => {
 	return (
 		<>
 			<div className="flex justify-center text-2xl mt-28">
@@ -64,14 +64,17 @@ export const Footer = () => {
 				<FooterCard
 					image="/wallet.png"
 					title="How to easily setup a MetaMask wallet"
+					link="https://opensea.io/blog/learn/how-to-easily-setup-a-metamask-wallet/"
 				/>
 				<FooterCard
 					image="/crypto-wallets.png"
 					title="How to fund MetaMask with ETH"
+					link="https://opensea.io/blog/learn/how-to-fund-metamask-with-eth/"
 				/>
 				<FooterCard
 					image="/nfts-footer.png"
 					title="How to find an NFT you love"
+					link="https://opensea.io/blog/learn/how-to-find-an-nft-you-love/"
 				/>
 			</div>
 			<footer className="p-4 sm:p-6 bg-gray-800">

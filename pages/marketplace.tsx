@@ -15,7 +15,7 @@ import {
 
 const Marketplace: NextPage = (): JSX.Element => {
 	const [selectedId, setSelectedId] = useState(null as string | null);
-	const ownerAddr: string = '0xfAE46f94Ee7B2Acb497CEcAFf6Cff17F621c693D';
+	const ownerAddr: string = '0x9523183432407aD8cC75F5B30a2BE3Ab035511B2';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
 	console.log(data);
@@ -39,7 +39,7 @@ const Marketplace: NextPage = (): JSX.Element => {
 				</h1>
 				<div className="xl:flex xl:m-14 justify-center m-5">
 					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2 gap-x-2">
-						{ownedNfts.slice(1, 5).map((nft: OwnedNft) => (
+						{ownedNfts.slice(9, 13).map((nft: OwnedNft) => (
 							<div key={nft.id.tokenId}>
 								<motion.div
 									layoutId={nft.id.tokenId}
@@ -84,9 +84,9 @@ const Marketplace: NextPage = (): JSX.Element => {
 					For you.
 				</h1>
 				<div className="xl:flex xl:m-14 justify-center m-5">
-					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
+					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2 gap-x-2">
 						{images.map((image, index) => (
-							<motion.div key={index} onClick={() => setSelectedId(image)}>
+							<motion.div key={index}>
 								<CardImages
 									image={image}
 									title="NFTu"

@@ -19,7 +19,7 @@ export const Galleries = () => {
 
 	return (
 		<>
-			<div className="xl:flex xl:ml-24 m-5 xl:justify-between mt-11 justify-start">
+			<div className="xl:flex xl:ml-24 m-5 xl:justify-between mt-24 justify-start">
 				<h2 className="text-3xl">
 					<span className="text-indigo-500">Top </span>Galleries.
 				</h2>

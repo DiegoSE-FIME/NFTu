@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { item } from '../config/framer';
-import { theme } from './tailwindClasses';
+import { item } from '../../config/framer';
 
 type CardProps = {
 	title: string | undefined;

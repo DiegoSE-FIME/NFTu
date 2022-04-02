@@ -8,10 +8,7 @@ export const Body: React.FC = () => {
 		<>
 			<div className={theme.bodyDiv}>
 				<div className="hidden xl:block xl:px-20 xl:py-11">
-					<Image src="/Card.svg" alt="Card" width={350} height={400} />
-					<button className={theme.placeABidButton}>
-						<span>Place a bid</span>
-					</button>
+					<Image src="/decentralised.svg" alt="Card" width={350} height={400} />
 				</div>
 
 				<div>

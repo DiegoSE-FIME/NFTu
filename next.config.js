@@ -8,17 +8,10 @@ module.exports = {
 	images: {
 		domains: [
 			'lh3.googleusercontent.com',
-			'clonex-assets.rtfkt.com',
+			'arweave.net',
 			'ipfs.io',
-			'via.placeholder.com',
-			'api.thesharkmob.com',
-			'storage.googleapis.com',
-			'unsplash.com',
-			'd1xxei964ioe0z.cloudfront.net',
+			'd1iw5n6erb90fa.cloudfront.net',
 			'metadata.nanopass.io',
-			'degentoonz-app-gfcxi.ondigitalocean.app',
-			'www.nuclearnerds.io',
-			'duskbreakers.gg',
 		],
 	},
 };

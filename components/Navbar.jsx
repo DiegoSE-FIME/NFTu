@@ -1,10 +1,10 @@
-import styles from './Logo.module.css';
 import Link from 'next/link';
 import { useCallback, useContext } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { connector } from '../config/web3';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../context/AuthContext';
+import styles from './Logo.module.css';
 import { theme } from './tailwindClasses';
 
 export const Navbar = () => {
