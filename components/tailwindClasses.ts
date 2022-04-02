@@ -12,11 +12,11 @@ export const theme: ITheme = {
 		'text-3xl font-semibold sm:text-5xl sm:leading-normal leading-normal',
 	headerDescription: 'text-gray-400 mt-5',
 	getStartedButton:
-		'inline-flex outline outline-1 outline-teal-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
+		'inline-flex outline outline-1 outline-slate-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
 	placeABidButton:
 		'absolute outline outline-1 outline-slate-400 bg-black text-white rounded-full items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-900 hover:text-white',
 	howItWorksButton: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
-	headerImage: 'w-40 z-40 absolute top-[25%] right-[32%] hidden xl:block',
+	headerImage: 'w-28 z-40 absolute top-[25%] right-[40%] hidden xl:block',
 	path1GoogleIcon:
 		'M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z',
 	path2GoogleIcon:
@@ -32,7 +32,7 @@ export const theme: ITheme = {
 	signInButton:
 		'inline-flex items-center h-10 px-5 mt-2.5 xl:mb-0 mb-5 text-white border border-teal-200 transition-colors duration-150  rounded-full focus:shadow-outline hover:bg-teal-800',
 	signOutButton:
-		'inline-flex items-center h-10 xl:mb-0 mb-5 px-5 xl:m-2 m-5 mt-2.5 text-indigo-100 transition-colors duration-150 bg-gray-500 rounded-lg focus:shadow-outline hover:bg-indigo-800',
+		'inline-flex items-center h-10 xl:mb-0 mb-5 px-5 xl:m-2 m-5 mt-2.5 transition-colors duration-150 border border-teal-200 rounded-full focus:shadow-outline hover:bg-teal-800',
 	bodyTitle:
 		'text-2xl px-5 text-bold xl:text-bold w-64 xl:px-0 xl:w-screen 2-xl:mx-auto xl:text-4xl xl:pt-32',
 	gradientAqua:

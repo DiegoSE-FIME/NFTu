@@ -64,14 +64,14 @@ export const Navbar = () => {
 								className={theme.navbarLoginButton}
 								onClick={disconnectWallet}>
 								{' '}
-								Disconnect wallet{' '}
+								Disconnect Wallet{' '}
 							</button>
 						) : (
 							<button
 								className={theme.navbarLoginButton}
 								onClick={connectWallet}>
 								{' '}
-								Connect wallet{' '}
+								Connect Wallet{' '}
 							</button>
 						)}
 

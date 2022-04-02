@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { item } from '../config/framer';
+import { theme } from './tailwindClasses';
 
 type CardProps = {
 	title: string | undefined;
@@ -19,60 +20,55 @@ export const Card: React.FC<CardProps> = ({
 	name,
 }): JSX.Element => {
 	return (
-		<motion.div className="card">
+		<>
 			<motion.div
-				className="xl:max-w-xs border border-slate-700 shadow-md mb-5 cursor-pointer rounded-lg flex flex-col"
+				className="xl:max-w-xs  shadow-md cursor-pointer flex flex-col max-h-fit py-2"
 				variants={item}
 				initial="hidden"
 				animate="show">
-				<motion.div className="p-2">
+				<motion.div>
 					{image ? (
-						<Image
-							src={image}
-							alt={title}
-							width={500}
-							height={450}
-							className="rounded-t-lg"
-						/>
+						<Image src={image} alt={title} width={500} height={500} />
 					) : (
 						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}
 				</motion.div>
-				<div className="flex flex-col">
-					<div className="grid xl:grid-cols-2 grid-cols xl:justify-items-end">
-						<div className="py-2 px-3 w-full whitespace-nowrap">
-							<h5 className="mb-2 text-normal font-bold tracking-tight text-gray-900 dark:text-white">
+				<div className="bg-gradient-to-r from-[#1f2a3f] via-[#1f2a3f] to-slate-700">
+					<div className="grid xl:grid-cols-2 grid-cols xl:justify-items-end xl:gap-5 gap-0">
+						<div className="px-2 py-3 w-full whitespace-nowrap">
+							<h5 className="mb-2 text-sm tracking-tight text-gray-900 dark:text-white">
 								{title}
 							</h5>
-							<p className="mb-3 text-sm text-gray-700 dark:text-gray-400">
-								By <span className="text-indigo-500">{name}</span>
+							<p className="xl:mb-3 mb-0 text-sm text-gray-700 dark:text-gray-400">
+								<span className="text-teal-400">@{name}</span>
 							</p>
 
-							<div className="xl:w-40 w-28 text-sm">
+							<div className="w-28 text-sm mt-5 xl:block hidden">
 								<Link href={link} passHref>
 									<a target="_blank">
-										<p className="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate whitespace-nowrap overflow-hidden">
+										<p className="font-normal text-gray-700 dark:text-gray-400 truncate whitespace-nowrap overflow-hidden">
 											Address{' '}
-											<span className="mt-2 text-indigo-500 hover:underline hover:decoration-indigo-500">
+											<span className="mt-2 text-teal-500 hover:underline">
 												{address}
 											</span>
 										</p>
 									</a>
 								</Link>
+								<span>1.05 ETH</span>
 							</div>
 						</div>
-						<div className="px-3 py-1">
-							<p className="text-sm text-gray-400">Price</p>
-							<span className="text-normal">50 ETH</span>
-							<p className="text-sm text-gray-400">Offer for</p>
-							<span className="text-normal">60 ETH</span>
+						<div className="py-3 px-2 text-center text-sm ">
+							<p className="text-gray-400 mb-2">Auctions ends in</p>
+							<div className="flex flex-col justify-between">
+								<span>22 : 15 : 33</span>
+							</div>
+							<button className="mt-5 text-black bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-md dark:shadow-teal-800/80 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full">
+								Place a bid
+							</button>
 						</div>
-					</div>
-					<div className="flex border border-t border-slate-800 h-11">
-						<span className="text-teal-200 p-3">Buy now</span>
 					</div>
 				</div>
 			</motion.div>
-		</motion.div>
+		</>
 	);
 };

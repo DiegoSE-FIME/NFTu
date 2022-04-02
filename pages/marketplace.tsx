@@ -18,7 +18,6 @@ const Marketplace: NextPage = (): JSX.Element => {
 	const ownerAddr: string = '0xfAE46f94Ee7B2Acb497CEcAFf6Cff17F621c693D';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
-	const nums: number[] = [1, 2, 3, 4];
 	console.log(data);
 
 	return !data ? (
@@ -27,7 +26,7 @@ const Marketplace: NextPage = (): JSX.Element => {
 				<div className="flex justify-center h-8 w-40 bg-gray-500 animate-pulse xl:m-11 mt-11"></div>
 			</div>
 			<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 grid grid-cols-2">
-				{nums.map((num) => (
+				{[1, 2, 3, 4].map((num) => (
 					<Loader key={num} />
 				))}
 			</div>
