@@ -32,7 +32,7 @@ export const Card: React.FC<CardProps> = ({
 						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}
 				</motion.div>
-				<div className="bg-gradient-to-r from-[#1f2a3f] via-[#1f2a3f] to-slate-700">
+				<div className="backdrop-blur-lg bg-white/10">
 					<div className="grid xl:grid-cols-2 grid-cols xl:justify-items-end xl:gap-5 gap-0">
 						<div className="px-2 py-3 w-full whitespace-nowrap">
 							<h5 className="mb-2 text-sm tracking-tight text-gray-900 dark:text-white">

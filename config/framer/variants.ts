@@ -19,7 +19,7 @@ export const item = {
 };
 
 export const transitionValues = {
-	duration: 1.5,
+	duration: 1,
 	repeat: Infinity,
 	repeatType: 'reverse',
 	ease: 'easeOut',

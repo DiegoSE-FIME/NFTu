@@ -9,12 +9,11 @@ export const Galleries = () => {
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { OwnedNft: [] };
 	const images: string[] = [
-		'/secondCarousel.png',
-		'/sixthCarousel.png',
-		'/thirdCarousel.png',
-		'/fourthCarousel.png',
-		'/fifthCarousel.png',
-		'/firstCarousel.png',
+		'/assetCarousel.svg',
+		'/assetCarousel2.svg',
+		'/assetCarousel3.svg',
+		'/assetCarousel4.svg',
+		'/assetCarousel5.svg',
 	];
 
 	return (

@@ -7,7 +7,7 @@ export const theme: ITheme = {
 	bodyDiv: 'grid grid-cols-2 gap-4 mt-24',
 	headerStars: 'w-40 absolute left-[30%] top-[25%] self-auto hidden xl:block',
 	headerTitleDiv:
-		'xl:w-[450px] w-[300px] col-span-1 ml-5 sm:ml-[80px] mt-[20%]',
+		'xl:w-[450px] w-[300px] col-span-1 ml-5 sm:ml-[80px] mt-[15%] md:w-[450px]',
 	headerTitle:
 		'text-3xl font-semibold sm:text-5xl sm:leading-normal leading-normal',
 	headerDescription: 'text-gray-400 mt-5',

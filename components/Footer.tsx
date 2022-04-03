@@ -60,24 +60,24 @@ export const Footer = (): JSX.Element => {
 			<div className="flex justify-center text-2xl mt-28" id="resources">
 				<h3>Resources for getting started</h3>
 			</div>
-			<div className="grid xl:grid-cols-3 grid-cols-1 justify-items-center mt-14 mb-40">
+			<div className="grid xl:grid-cols-3 grid-cols-1 justify-items-center p-11 mb-40 gap-2">
 				<FooterCard
-					image="/wallet.png"
+					icon="/metamask-logo.svg"
 					title="How to easily setup a MetaMask wallet"
 					link="https://opensea.io/blog/learn/how-to-easily-setup-a-metamask-wallet/"
 				/>
 				<FooterCard
-					image="/crypto-wallets.png"
+					icon="/icon-money.svg"
 					title="How to fund MetaMask with ETH"
 					link="https://opensea.io/blog/learn/how-to-fund-metamask-with-eth/"
 				/>
 				<FooterCard
-					image="/nfts-footer.png"
+					icon="/icon-security.svg"
 					title="How to find an NFT you love"
 					link="https://opensea.io/blog/learn/how-to-find-an-nft-you-love/"
 				/>
 			</div>
-			<footer className="p-4 sm:p-6 bg-gray-800">
+			<footer className="p-4 sm:p-6 backdrop-blur-lg bg-white/10">
 				<div className="md:flex md:justify-between">
 					<div className="mb-6 md:mb-0">
 						<a href="https://flowbite.com" className="flex items-center">

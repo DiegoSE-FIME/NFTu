@@ -5,6 +5,17 @@ import { motion } from 'framer-motion';
 import { theme } from './tailwindClasses';
 
 export const Header: React.FC = (): JSX.Element => {
+	const variants = {
+		initial: {
+			opacity: 0,
+			y: -180,
+		},
+		animate: {
+			opacity: 1,
+			y: 0,
+		},
+	};
+
 	return (
 		<div className={theme.headerDiv}>
 			<motion.div
@@ -16,8 +27,9 @@ export const Header: React.FC = (): JSX.Element => {
 			</motion.div>
 			<motion.div className={theme.headerTitleDiv}>
 				<motion.div
-					initial={{ opacity: 0, y: -180 }}
-					animate={{ opacity: 1, y: 0 }}
+					variants={variants}
+					initial="initial"
+					animate="animate"
 					transition={{
 						ease: 'easeInOut',
 						duration: 1,

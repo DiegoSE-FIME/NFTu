@@ -9,7 +9,7 @@ export const Carousel: React.FC<CarouselProps> = ({ data, from, to, nfts }) => {
 			<h2>Loading...</h2>
 		</div>
 	) : (
-		<motion.div className="xl:carousel xl:container xl:cursor-grab xl:overflow-hidden ml-5 grid grid-cols-2">
+		<motion.div className="xl:carousel xl:container xl:cursor-grab xl:overflow-hidden ml-5 grid grid-cols-2 xl:p-6">
 			<motion.div
 				drag="x"
 				dragConstraints={{

@@ -39,7 +39,7 @@ export const Navbar = () => {
 						</a>
 					</Link>
 
-					<div className="flex items-center justify-center nav-links hidden xl:inline-flex">
+					<div className="flex items-center justify-center nav-links hidden xl:inline-flex space-x-5 ml-11">
 						<Link href="/marketplace">
 							<a className="px-2 py-1 text-sm  text-white-500 hover:text-teal-200 hidden xl:inline-flex">
 								Marketplace
