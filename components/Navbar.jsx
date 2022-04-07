@@ -34,7 +34,7 @@ export const Navbar = () => {
 			<nav className="px-2 sm:px-4 py-2.5">
 				<div className="border-gray-200 px-2 sm:px-4 py-2.5 container flex flex-wrap justify-between items-center mx-auto rounded-lg">
 					<Link href="/">
-						<a className="flex items-center whitespace-nowrap px-4">
+						<a className="flex items-center whitespace-nowrap xl:px-8 md:px-8 px-4">
 							<span className={styles.logo}>NFTu.</span>
 						</a>
 					</Link>

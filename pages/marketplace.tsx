@@ -1,16 +1,14 @@
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { Card, Loader, PageLayout, CardImages } from '../components';
+import { DataResponse, OwnedNft } from '../interfaces';
 import { motion } from 'framer-motion';
 import { useFetchNFT } from '../hooks';
-import { DataResponse, OwnedNft } from '../interfaces';
 import { images, topArtistsImages } from '../utils';
-import { Card, Loader, PageLayout, CardImages } from '../components';
 
 const Marketplace: NextPage = (): JSX.Element => {
 	const ownerAddr: string = '0x9523183432407aD8cC75F5B30a2BE3Ab035511B2';
 	const { data } = useFetchNFT(ownerAddr);
 	const { ownedNfts } = (data as DataResponse) || { ownedNfts: [] };
-	console.log(data);
 
 	return !data ? (
 		<>
@@ -31,7 +29,7 @@ const Marketplace: NextPage = (): JSX.Element => {
 				</h1>
 				<div className="xl:flex xl:m-14 justify-center m-5">
 					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 md:grid-cols-4 grid grid-cols-2 gap-x-2">
-						{ownedNfts.slice(10, 14).map((nft: OwnedNft) => (
+						{ownedNfts.slice(11, 15).map((nft: OwnedNft) => (
 							<div key={nft.id.tokenId}>
 								<div>
 									<Card

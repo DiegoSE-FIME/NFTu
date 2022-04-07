@@ -5,11 +5,12 @@ export const theme: ITheme = {
 		'focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-white-700 flex items-center w-full mt-5',
 	headerDiv: 'grid grid-cols-2 gap-4 mt-11',
 	bodyDiv: 'grid grid-cols-2 gap-4 mt-24',
-	headerStars: 'w-40 absolute left-[30%] top-[25%] self-auto hidden xl:block',
+	headerStars:
+		'w-40 absolute left-[30%] xl:top-[20%] md:top-[20%] self-auto hidden xl:block',
 	headerTitleDiv:
 		'xl:w-[450px] w-[300px] col-span-1 ml-5 sm:ml-[80px] mt-[15%] md:w-[450px]',
 	headerTitle:
-		'text-3xl font-semibold sm:text-5xl sm:leading-normal leading-normal',
+		'text-3xl font-semibold sm:text-5xl sm:leading-normal xl:leading-normal md:leading-normal',
 	headerDescription: 'text-gray-400 mt-5',
 	getStartedButton:
 		'inline-flex outline outline-1 outline-slate-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',

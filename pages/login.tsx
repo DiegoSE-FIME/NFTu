@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { theme } from '../components/tailwindClasses';
 import { AuthContext } from '../context';
-import { useContext } from 'react';
+import { useContext, Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout } from '../components';
@@ -10,81 +10,57 @@ const Login: NextPage = () => {
 	const { signInWithGoogle, firebaseUser } = useContext(AuthContext);
 
 	return !firebaseUser ? (
-		<PageLayout title="NFTu - Login">
-			<div className="h-full w-full py-9 px-4">
-				<div className="flex flex-col items-center justify-center">
-					<div className="shadow rounded border border-slate-400 lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
-						<p
-							tabIndex={0}
-							aria-label="Login to your account"
-							className="text-2xl font-extrabold leading-6 text-white-800">
-							Login to your account
-						</p>
-						<button
-							aria-label="Continue with google"
-							role="button"
-							className={theme.loginButton}
-							onClick={signInWithGoogle}>
-							<svg
-								width={19}
-								height={20}
-								viewBox="0 0 19 20"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d={theme.path1GoogleIcon} fill="#4285F4" />
-								<path d={theme.path2GoogleIcon} fill="#34A853" />
-								<path d={theme.path3GoogleIcon} fill="#FBBC05" />
-								<path d={theme.path4GoogleIcon} fill="#EB4335" />
+		<Fragment>
+			<PageLayout title="NFTu - Login">
+				<div className="w-full p-8 flex justify-center flex-wrap">
+					<div className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md bg-white">
+						<div className="px-4 py-3">
+							<svg className="h-6 w-6" viewBox="0 0 40 40">
+								<path
+									d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+									fill="#FFC107"
+								/>
+								<path
+									d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
+									fill="#FF3D00"
+								/>
+								<path
+									d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
+									fill="#4CAF50"
+								/>
+								<path
+									d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+									fill="#1976D2"
+								/>
 							</svg>
-							<p className="text-base font-medium ml-4 text-white-700">
-								Continue with Google
-							</p>
-						</button>
+						</div>
 						<button
-							aria-label="Continue with github"
-							role="button"
-							className={theme.loginButton}>
-							<svg
-								width={21}
-								height={20}
-								viewBox="0 0 21 20"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d={theme.pathGithubIcon} fill="#333333" />
-							</svg>
-							<p className="text-base font-medium ml-4 text-white-700">
-								Continue with Github
-							</p>
+							onClick={signInWithGoogle}
+							className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">
+							Sign in with Google
 						</button>
 					</div>
 				</div>
-			</div>
-		</PageLayout>
+			</PageLayout>
+		</Fragment>
 	) : (
 		<PageLayout title="NFTu - Login">
-			<div className="flex justify-center items-center mt-8">
+			<div className="flex flex-col items-center justify-center">
 				<Image
-					src={firebaseUser?.photoURL || '/favicon.ico'}
-					width={100}
-					height={100}
-					className={theme.profileImage}
-					alt="Profile"
+					src={firebaseUser.photoURL}
+					alt="logo"
+					width={200}
+					height={200}
+					className="rounded-full"
 				/>
-			</div>
-			<div className="mt-5 text-center flex justify-center items-center">
-				<h2 className="text-center text-xl xl:text-4xl">
-					You are already logged in, {firebaseUser?.displayName || 'NFTu'}!
-				</h2>{' '}
-			</div>
-			<div className="mt-5 text-center flex justify-center items-center">
-				<p className="text-center text-xl xl:text-4xl">
-					Explore the{' '}
-					<Link href="/marketplace">
-						<a className="text-teal-400 text-xl text-center xl:text-4xl">
-							Marketplace.
-						</a>
-					</Link>
-				</p>
+				<h1 className="text-2xl font-semibold text-white mt-4">
+					Welcome {firebaseUser.displayName}
+				</h1>
+				<Link href="/">
+					<a className="mt-4 text-lg text-white">
+						Go to <span className="text-teal-400">home page</span>
+					</a>
+				</Link>
 			</div>
 		</PageLayout>
 	);

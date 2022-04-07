@@ -7,7 +7,7 @@ export const Body: React.FC = (): JSX.Element => {
 	return (
 		<>
 			<div className={theme.bodyDiv}>
-				<div className="hidden xl:block md:block xl:px-20 xl:py-11 py-0">
+				<div className="hidden xl:block md:block xl:px-20 xl:py-11 py-0 md:px-20 md:py-11">
 					<Image
 						src="/body-illustration.svg"
 						alt="decentralised"
@@ -16,14 +16,14 @@ export const Body: React.FC = (): JSX.Element => {
 					/>
 				</div>
 
-				<div className="xl:px-5 xl:py-5 md:px-5 md:py-11">
+				<div className="xl:px-5 xl:py-5 md:px-5 md:py-24">
 					<div className={theme.bodyTitle}>
 						<h2>Build on ETH.</h2>
 						<h2>
 							Owned by <span className="text-teal-400">you</span>.
 						</h2>
 					</div>
-					<div className="xl:mt-5 xl:w-[500px] xl:w-96 md:w-96 w-80 px-5 xl:px-0">
+					<div className="xl:mt-5 xl:w-[500px] xl:w-96 md:w-96 w-screen px-5 xl:px-0">
 						<p className={theme.headerDescription}>
 							Marketplace for crypto collectibles with a focus on the Ethereum
 							blockchain. Ethereum is open access to digital money and

@@ -9,7 +9,7 @@ export const Footer = (): JSX.Element => {
 					Create and <span className="text-teal-400">sell</span> your NFTs
 				</h3>
 			</div>
-			<div className="grid justify-items-center xl:grid-cols-3 mt-11 mb-11 grid-cols-1">
+			<div className="grid justify-items-center xl:grid-cols-3 mt-11 mb-11 grid-cols-1 md:grid-cols-3">
 				<div className="w-80 text-center">
 					<div className="flex justify-center">
 						<Image src="/bitcoin-card.svg" width={24} height={24} alt="icon" />
@@ -22,7 +22,7 @@ export const Footer = (): JSX.Element => {
 						clicking the connect wallet button in the top right corner.
 					</span>
 				</div>
-				<div className="w-80 xl:mt-0 mt-5 text-center">
+				<div className="w-80 xl:mt-0 text-center">
 					<div className="flex justify-center">
 						<Image
 							src="/gallery-add.svg"
@@ -39,7 +39,7 @@ export const Footer = (): JSX.Element => {
 						unlockable content.{' '}
 					</span>
 				</div>
-				<div className="w-80 xl:mt-0 mt-5 text-center">
+				<div className="w-80 xl:mt-0 text-center">
 					<div className="flex justify-center">
 						<Image
 							src="/bitcoin-convert.svg"
@@ -60,7 +60,7 @@ export const Footer = (): JSX.Element => {
 			<div className="flex justify-center text-2xl mt-28" id="resources">
 				<h3>Resources for getting started</h3>
 			</div>
-			<div className="grid xl:grid-cols-3 grid-cols-1 justify-items-center p-11 mb-40 gap-2">
+			<div className="grid xl:grid-cols-3 md:grid-cols-3 grid-cols-1 justify-items-center p-11 mb-40 gap-2">
 				<FooterCard
 					icon="/metamask-logo.svg"
 					title="How to easily setup a MetaMask wallet"

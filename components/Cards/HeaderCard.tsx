@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const HeaderCard = (): JSX.Element => {
 	return (
 		<>
-			<div className="w-80 z-40 absolute top-[30%] right-[18%] hidden xl:block">
+			<div className="w-80 z-40 absolute xl:top-[25%] xl:right-[18%]  hidden xl:block md:block md:top-[45%] md:right-[18%]">
 				<Image
 					src="/header-img-example.svg"
 					width={440}
@@ -14,7 +14,7 @@ export const HeaderCard = (): JSX.Element => {
 				/>
 			</div>
 			<motion.div
-				className="w-80 z-40 absolute top-[60%] right-[14%] hidden xl:block"
+				className="w-80 z-40 absolute xl:top-[55%] xl:right-[14%] hidden xl:block md:block md:top-[70%] md:right-[14%]"
 				transition={{
 					y: transitionValues,
 					width: transitionValues,

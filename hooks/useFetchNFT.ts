@@ -1,5 +1,5 @@
 import { Options } from '../interfaces';
-import useSWR, { Key, Fetcher } from 'swr';
+import useSWR, { Key, Fetcher, BareFetcher } from 'swr';
 import axios, { AxiosResponse } from 'axios';
 import { DataResponse } from '../interfaces';
 
@@ -21,7 +21,10 @@ export const useFetchNFT = (ownerAddr: string) => {
 		return response.data;
 	};
 
-	const { data, error } = useSWR<DataResponse>(url, fetcher as any);
+	const { data, error } = useSWR<DataResponse>(
+		url,
+		fetcher as BareFetcher<DataResponse>
+	);
 
 	if (error) {
 		console.log(error);
