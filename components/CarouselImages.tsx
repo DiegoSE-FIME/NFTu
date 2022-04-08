@@ -9,16 +9,16 @@ type CarouselImages = {
 export const CarouselImages: React.FC<CarouselImages> = ({ images }) => {
 	return (
 		<>
-			<motion.div className="xl:carousel xl:container xl:cursor-grab xl:overflow-hidden xl:ml-5 ml-0 grid grid-cols-2 xl:p-6 md:carousel md:container md:cursor-grab md:overflow-hidden">
+			<motion.div className="xl:carousel xl:container  xl:overflow-hidden xl:ml-5 ml-0 grid grid-cols-2 xl:p-6 md:carousel md:container  md:overflow-hidden">
 				<motion.div
 					drag="x"
 					dragConstraints={{
 						right: 0,
 						left: -images?.length * 100 || 0,
 					}}
-					whileDrag={{ skewX: -5 }}
+					dragElastic={0.7}
 					dragPropagation
-					className="inner-carousel flex md:px-11 xl:px-0">
+					className="inner-carousel flex md:px-11 xl:px-0 xl:cursor-grab md:cursor-grab">
 					{images.map((image, index) => {
 						return (
 							<motion.div

@@ -17,66 +17,59 @@ export const Header: React.FC = (): JSX.Element => {
 	};
 
 	return (
-		<div className={theme.headerDiv}>
-			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				className={theme.headerStars}>
-				<Image src="/Star.svg" alt="Star2" width={50} height={50} />
-				<Image src="/Star2.svg" alt="Star" width={20} height={20} />
-			</motion.div>
-			<motion.div className={theme.headerTitleDiv}>
-				<motion.div
-					variants={variants}
-					initial="initial"
-					animate="animate"
-					transition={{
-						ease: 'easeInOut',
-						duration: 1,
-						delay: 0.6,
-					}}>
-					<h1 className={theme.headerTitle}>
-						A platform to find your digital unique rarity.
-					</h1>
-				</motion.div>
-
-				<motion.div
-					initial={{ opacity: 0, y: -180 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{
-						ease: 'easeInOut',
-						duration: 1,
-						delay: 0.6,
-					}}>
-					<p className={theme.headerDescription}>
-						Find extraordinary NFTs and collect them in your own collection,
-						list them for sale or share them with your friends.
-					</p>
-				</motion.div>
-
-				<div className="mt-5">
-					<Link href="#resources" passHref>
-						<button className={theme.getStartedButton}>
-							Get started
-							<Image src="/assets/Line.png" alt="line" width={20} height={20} />
-						</button>
-					</Link>
-					<Link href="/">
-						<a className={theme.howItWorksButton}>How it works</a>
-					</Link>
+		<motion.section
+			className="lg:flex lg:flex-row lg:justify-center items-center lg:py-24 p-5"
+			variants={variants}
+			initial="initial"
+			animate="animate"
+			exit="exit"
+			transition={{
+				ease: 'easeInOut',
+				duration: 1,
+				delay: 0.6,
+			}}>
+			<div className="child1 basis-6/12">
+				<div className="stars w-96 flex justify-end flex-col lg:block hidden mb-2">
+					<div className="flex justify-end">
+						<Image src="/Star.svg" alt="star" width={44} height={44} />
+					</div>
+					<div className="flex justify-end ml-8 w-full">
+						<Image src="/Star2.svg" alt="star" width={24} height={24} />
+					</div>
 				</div>
-			</motion.div>
-			<div className={theme.gradientAqua}>
-				<Image
-					src="/gradientAqua.png"
-					width={350}
-					height={350}
-					className="rounded-full"
-					alt="gradient"
-					priority
-				/>
+				<h1 className="text-3xl lg:text-5xl lg:leading-normal leading-normal w-auto lg:w-3/4 text-bold">
+					A platform to find your digital unique rarity.
+				</h1>
+				<p className={theme.description}>
+					NFTu platform brings artists and creators together on a single
+					platform. You can find your digital unique rarity and sell it to the
+					world.
+				</p>
+				<div className="flex-flex-row">
+					<button className={theme.getStartedButton}>
+						Get started
+						<div className="ml-4 w-auto mt-[.1em]">
+							<Image src="/Line.svg" alt="arrow" width={14} height={14} />
+						</div>
+					</button>
+					<button className={theme.buttonWithBorder}>How it works</button>
+				</div>
 			</div>
-			<HeaderCard />
-		</div>
+			<div className="child2 lg:block hidden">
+				<div className="image flex flex-col flex-wrap">
+					<div className="w-3/4 basis-1/2">
+						<Image
+							src="/header-img-example.svg"
+							alt="header-img"
+							width={500}
+							height={500}
+						/>
+					</div>
+					<div className="lg:-mt-32 lg:ml-20">
+						<HeaderCard />
+					</div>
+				</div>
+			</div>
+		</motion.section>
 	);
 };

@@ -23,14 +23,16 @@ const Marketplace: NextPage = (): JSX.Element => {
 		</>
 	) : (
 		<PageLayout title="NFTu - Marketplace">
-			<section className="trending">
-				<h1 className="text-bold text-3xl xl:m-14 xl:text-left text-center mt-11">
+			<div className="px-14">
+				<h1 className="text-bold text-3xl xl:text-left text-center mt-11">
 					Trending.
 				</h1>
+			</div>
+			<section className="trending flex justify-center items-center flew-nowrap">
 				<div className="xl:flex xl:m-14 justify-center m-5">
 					<div className="xl:grid xl:gap-x-8 xl:grid-cols-4 md:grid-cols-4 grid grid-cols-2 gap-x-2">
-						{ownedNfts.slice(11, 15).map((nft: OwnedNft) => (
-							<div key={nft.id.tokenId}>
+						{ownedNfts.slice(14, 18).map((nft: OwnedNft, index) => (
+							<div key={index}>
 								<div>
 									<Card
 										image={nft.media[0].gateway}

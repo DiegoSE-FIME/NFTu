@@ -21,13 +21,19 @@ export const Card: React.FC<CardProps> = ({
 	return (
 		<>
 			<motion.div
-				className="xl:max-w-xs  shadow-md cursor-pointer flex flex-col max-h-fit py-2"
+				className="xl:max-w-xs shadow-md cursor-pointer flex flex-col max-h-fit py-2"
 				variants={item}
 				initial="hidden"
 				animate="show">
 				<motion.div>
 					{image ? (
-						<Image src={image} alt={title} width={500} height={500} />
+						<Image
+							src={image}
+							alt={title}
+							width={500}
+							height={500}
+							className="rounded-t-lg"
+						/>
 					) : (
 						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}

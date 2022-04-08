@@ -3,21 +3,13 @@ import { ITheme } from '../interfaces';
 export const theme: ITheme = {
 	loginButton:
 		'focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-white-700 flex items-center w-full mt-5',
-	headerDiv: 'grid grid-cols-2 gap-4 mt-11',
-	bodyDiv: 'grid grid-cols-2 gap-4 mt-24',
-	headerStars:
-		'w-40 absolute left-[30%] xl:top-[20%] md:top-[20%] self-auto hidden xl:block',
-	headerTitleDiv:
-		'xl:w-[450px] w-[300px] col-span-1 ml-5 sm:ml-[80px] mt-[15%] md:w-[450px]',
-	headerTitle:
-		'text-3xl font-semibold sm:text-5xl sm:leading-normal xl:leading-normal md:leading-normal',
-	headerDescription: 'text-gray-400 mt-5',
+	bodyDiv: 'lg:flex lg:flex-row lg:justify-center items-center lg:py-24 p-5',
+	description: 'text-gray-400 mt-5 lg:w-3/4 mb-5',
 	getStartedButton:
 		'inline-flex outline outline-1 outline-slate-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
 	placeABidButton:
 		'absolute outline outline-1 outline-slate-400 bg-black text-white rounded-full items-center h-10 px-5 left-[27%] mt-72 transition-colors duration-150 focus:shadow-outline hover:bg-gray-900 hover:text-white',
-	howItWorksButton: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
-	headerImage: 'w-28 z-40 absolute top-[25%] right-[40%] hidden xl:block',
+	buttonWithBorder: 'inline-flex border-b-2 border-teal-400 ml-7 font-thin',
 	path1GoogleIcon:
 		'M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z',
 	path2GoogleIcon:
@@ -29,9 +21,9 @@ export const theme: ITheme = {
 	pathGithubIcon:
 		'M10.1543 0C4.6293 0 0.154298 4.475 0.154298 10C0.153164 12.0993 0.813112 14.1456 2.04051 15.8487C3.26792 17.5517 5.00044 18.8251 6.9923 19.488C7.4923 19.575 7.6793 19.275 7.6793 19.012C7.6793 18.775 7.6663 17.988 7.6663 17.15C5.1543 17.613 4.5043 16.538 4.3043 15.975C4.1913 15.687 3.7043 14.8 3.2793 14.562C2.9293 14.375 2.4293 13.912 3.2663 13.9C4.0543 13.887 4.6163 14.625 4.8043 14.925C5.7043 16.437 7.1423 16.012 7.7163 15.75C7.8043 15.1 8.0663 14.663 8.3543 14.413C6.1293 14.163 3.8043 13.3 3.8043 9.475C3.8043 8.387 4.1913 7.488 4.8293 6.787C4.7293 6.537 4.3793 5.512 4.9293 4.137C4.9293 4.137 5.7663 3.875 7.6793 5.163C8.49336 4.93706 9.33447 4.82334 10.1793 4.825C11.0293 4.825 11.8793 4.937 12.6793 5.162C14.5913 3.862 15.4293 4.138 15.4293 4.138C15.9793 5.513 15.6293 6.538 15.5293 6.788C16.1663 7.488 16.5543 8.375 16.5543 9.475C16.5543 13.313 14.2173 14.163 11.9923 14.413C12.3543 14.725 12.6673 15.325 12.6673 16.263C12.6673 17.6 12.6543 18.675 12.6543 19.013C12.6543 19.275 12.8423 19.587 13.3423 19.487C15.3273 18.8168 17.0522 17.541 18.2742 15.8392C19.4962 14.1373 20.1537 12.0951 20.1543 10C20.1543 4.475 15.6793 0 10.1543 0Z',
 	navbarLoginButton:
-		'inline-flex items-center h-10 px-5 mt-2.5 text-white transition-colors border border-teal-200 duration-150 rounded focus:shadow-outline hover:bg-teal-800 hidden xl:inline-flex',
+		'inline-flex items-center bg-violet-700 h-10 px-5 mt-2.5 text-white transition-colors border border-violet-700 duration-150 rounded-full focus:shadow-outline hover:bg-violet-800 hidden xl:inline-flex',
 	signInButton:
-		'inline-flex items-center h-10 px-5 mt-2.5 xl:mb-0 mb-5 text-white border border-teal-200 transition-colors duration-150  rounded focus:shadow-outline hover:bg-teal-800',
+		'inline-flex items-center bg-violet-700 h-10 px-5 mt-2.5 xl:mb-0 mb-5 text-white border border-violet-700 transition-colors duration-150  rounded-full focus:shadow-outline hover:bg-violet-800',
 	signOutButton:
 		'inline-flex items-center h-10 xl:mb-0 mb-5 px-5 xl:m-2 m-5 bg-teal-700 mt-2.5 transition-colors duration-150 border border-teal-200 rounded focus:shadow-outline hover:bg-teal-800',
 	bodyTitle:

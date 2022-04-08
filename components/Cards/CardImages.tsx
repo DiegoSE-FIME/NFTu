@@ -27,7 +27,13 @@ export const CardImages: React.FC<CardProps> = ({
 				animate="show">
 				<motion.div>
 					{image ? (
-						<Image src={image} alt={title} width={500} height={500} />
+						<Image
+							src={image}
+							alt={title}
+							width={500}
+							height={500}
+							className="rounded-t-lg"
+						/>
 					) : (
 						<div className="p-5 rounded animated-pulse w-96"></div>
 					)}

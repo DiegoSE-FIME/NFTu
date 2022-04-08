@@ -1,20 +1,12 @@
-import Image from 'next/image';
+import { Fragment } from 'react';
 import { transitionValues } from '../../config/framer';
 import { motion } from 'framer-motion';
 
 export const HeaderCard = (): JSX.Element => {
 	return (
-		<>
-			<div className="w-80 z-40 absolute xl:top-[25%] xl:right-[18%]  hidden xl:block md:block md:top-[45%] md:right-[18%]">
-				<Image
-					src="/header-img-example.svg"
-					width={440}
-					height={436}
-					alt="image"
-				/>
-			</div>
+		<Fragment>
 			<motion.div
-				className="w-80 z-40 absolute xl:top-[55%] xl:right-[14%] hidden xl:block md:block md:top-[70%] md:right-[14%]"
+				className="w-80 z-40"
 				transition={{
 					y: transitionValues,
 					width: transitionValues,
@@ -47,6 +39,6 @@ export const HeaderCard = (): JSX.Element => {
 					</div>
 				</div>
 			</motion.div>
-		</>
+		</Fragment>
 	);
 };
