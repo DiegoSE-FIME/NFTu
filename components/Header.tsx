@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { HeaderCard } from '../components';
 import { motion } from 'framer-motion';
 import { theme } from './tailwindClasses';
+import styles from './Header.module.css';
 
 export const Header: React.FC = (): JSX.Element => {
 	const variants = {
@@ -37,9 +38,12 @@ export const Header: React.FC = (): JSX.Element => {
 						<Image src="/Star2.svg" alt="star" width={24} height={24} />
 					</div>
 				</div>
-				<h1 className="text-3xl lg:text-5xl lg:leading-normal leading-normal w-auto lg:w-3/4 text-bold">
-					A platform to find your digital unique rarity.
-				</h1>
+				<div className="text-3xl font-bold leading-normal w-auto lg:leading-normal lg:text-5xl lg:w-3/4">
+					<h1>
+						A platform to find your digital{' '}
+						<span className={styles.gradientText}>unique</span> rarity.
+					</h1>
+				</div>
 				<p className={theme.description}>
 					NFTu platform brings artists and creators together on a single
 					platform. You can find your digital unique rarity and sell it to the

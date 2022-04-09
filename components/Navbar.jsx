@@ -41,15 +41,15 @@ export const Navbar = () => {
 
 					<div className="flex items-center justify-center nav-links hidden xl:inline-flex space-x-5 ml-11 text-white-500">
 						<Link href="/marketplace">
-							<a className="px-2 py-1 text-sm hover:text-teal-200 hidden xl:inline-flex">
+							<a className="px-2 py-1 text-md hover:text-teal-200 hidden xl:inline-flex">
 								Marketplace
 							</a>
 						</Link>
 						<Link href="/resources">
-							<a className="px-2 py-1 text-sm hover:text-teal-200">Resources</a>
+							<a className="px-2 py-1 text-md hover:text-teal-200">Resources</a>
 						</Link>
 						<Link href="/community">
-							<a className="px-2 py-1 text-sm hover:text-teal-200">Community</a>
+							<a className="px-2 py-1 text-md hover:text-teal-200">Community</a>
 						</Link>
 					</div>
 
@@ -57,14 +57,14 @@ export const Navbar = () => {
 					<div className="space-x-2">
 						{active ? (
 							<button
-								className={theme.navbarLoginButton}
+								className={theme.connectWalletButton}
 								onClick={disconnectWallet}>
 								{' '}
 								Disconnect Wallet{' '}
 							</button>
 						) : (
 							<button
-								className={theme.navbarLoginButton}
+								className={theme.connectWalletButton}
 								onClick={connectWallet}>
 								{' '}
 								Connect Wallet{' '}

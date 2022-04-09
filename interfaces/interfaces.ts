@@ -48,7 +48,7 @@ export interface StsTokenManager {
 
 export interface ITheme {
 	loginButton?: string;
-	navbarLoginButton?: string;
+	connectWalletButton?: string;
 	signInButton?: string;
 	signOutButton?: string;
 	description?: string;
