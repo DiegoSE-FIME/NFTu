@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { HeaderCard } from '../components';
 import { motion } from 'framer-motion';
 import { theme } from './tailwindClasses';
@@ -19,7 +18,7 @@ export const Header: React.FC = (): JSX.Element => {
 
 	return (
 		<motion.section
-			className="lg:flex lg:flex-row lg:justify-center items-center lg:py-24 p-5"
+			className="lg:flex lg:flex-row lg:justify-center items-center p-5"
 			variants={variants}
 			initial="initial"
 			animate="animate"
@@ -30,6 +29,15 @@ export const Header: React.FC = (): JSX.Element => {
 				delay: 0.6,
 			}}>
 			<div className="child1 basis-6/12">
+				<div className="rounded-full absolute left-[12%] -top-32 z-30 max-w-full hidden lg:block opacity-70">
+					<Image
+						src="/gradient-blob.svg"
+						width={350}
+						height={350}
+						alt="blob"
+						className="rounded-full opacity-70 blur-xl"
+					/>
+				</div>
 				<div className="stars w-96 flex justify-end flex-col lg:block hidden mb-2">
 					<div className="flex justify-end">
 						<Image src="/Star.svg" alt="star" width={44} height={44} />

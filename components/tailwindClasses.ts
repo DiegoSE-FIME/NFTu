@@ -3,8 +3,8 @@ import { ITheme } from '../interfaces';
 export const theme: ITheme = {
 	loginButton:
 		'focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-white-700 flex items-center w-full mt-5',
-	bodyDiv: 'lg:flex lg:flex-row lg:justify-center items-center lg:py-24 p-5',
-	description: 'text-xl text-gray-400 mt-5 lg:w-3/4 mb-5',
+	bodyDiv: 'lg:flex lg:flex-row lg:justify-center items-center lg:py-24 lg:flex lg:flex-row lg:justify-center items-center lg:py-24 p-5',
+	description: 'leadign-[1.15] text-xl text-gray-400 mt-5 lg:w-3/4 mb-5',
 	getStartedButton:
 		'inline-flex outline outline-1 outline-slate-400 items-center h-10 px-5 py-[28px] mt-2.5 text-indigo-100 transition-colors duration-150 focus:shadow-outline hover:bg-teal-400 hover:text-black',
 	placeABidButton:
