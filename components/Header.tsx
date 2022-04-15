@@ -29,16 +29,7 @@ export const Header: React.FC = (): JSX.Element => {
 				delay: 0.6,
 			}}>
 			<div className="child1 basis-6/12">
-				<div className="rounded-full absolute left-[12%] -top-32 z-30 max-w-full hidden lg:block opacity-70">
-					<Image
-						src="/gradient-blob.svg"
-						width={350}
-						height={350}
-						alt="blob"
-						className="rounded-full opacity-70 blur-xl"
-					/>
-				</div>
-				<div className="stars w-96 flex justify-end flex-col lg:block hidden mb-2">
+				<div className="stars hidden w-96 lg:flex justify-end flex-col mb-2">
 					<div className="flex justify-end">
 						<Image src="/Star.svg" alt="star" width={44} height={44} />
 					</div>
@@ -46,7 +37,7 @@ export const Header: React.FC = (): JSX.Element => {
 						<Image src="/Star2.svg" alt="star" width={24} height={24} />
 					</div>
 				</div>
-				<div className="text-3xl font-bold leading-normal w-auto lg:leading-normal lg:text-5xl lg:w-3/4">
+				<div className="text-3xl font-bold leading-normal lg:leading-normal lg:text-5xl lg:w-3/4">
 					<h1>
 						A platform to find your digital{' '}
 						<span className={styles.gradientText}>unique</span> rarity.
