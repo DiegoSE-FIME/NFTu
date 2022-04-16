@@ -1,8 +1,7 @@
 import { Method } from 'axios';
-
+import { User } from 'firebase/auth';
 export interface IAuthContext {
-	firebaseUser: FirebaseData | null;
-	firebaseData: FirebaseData | null;
+	firebaseUser: User | null;
 	signInWithGoogle: () => Promise<void>;
 	signOutUser: () => Promise<void>;
 	isLoading: boolean;
@@ -48,8 +47,7 @@ export interface StsTokenManager {
 
 export interface ITheme {
 	loginButton?: string;
-	connectWalletButton?: string;
-	signInButton?: string;
+	button?: string;
 	signOutButton?: string;
 	description?: string;
 	profileImage?: string;

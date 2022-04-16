@@ -10,5 +10,8 @@ module.exports = {
 			blur: 'blur(20px)',
 		},
 	},
-	plugins: [require('tailwindcss-filters')],
+	plugins: [
+		require('tailwindcss-filters'),
+		require('@tailwindcss/aspect-ratio'),
+	],
 };

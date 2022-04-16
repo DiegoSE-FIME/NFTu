@@ -56,16 +56,12 @@ export const Navbar = () => {
 					{/* add class hidden sm:inline-flex*/}
 					<div className="space-x-2">
 						{active ? (
-							<button
-								className={theme.connectWalletButton}
-								onClick={disconnectWallet}>
+							<button className={theme.button} onClick={disconnectWallet}>
 								{' '}
 								Disconnect Wallet{' '}
 							</button>
 						) : (
-							<button
-								className={theme.connectWalletButton}
-								onClick={connectWallet}>
+							<button className={theme.button} onClick={connectWallet}>
 								{' '}
 								Connect Wallet{' '}
 							</button>
@@ -78,7 +74,7 @@ export const Navbar = () => {
 							</button>
 						) : (
 							<Link href="/login" passHref>
-								<button className={theme.signInButton}> Sign In </button>
+								<button className={theme.button}> Sign In </button>
 							</Link>
 						)}
 					</div>
