@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
-import { theme } from '../components/tailwindClasses';
-import { AuthContext } from '../context';
-import { useContext, Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useContext, Fragment } from 'react';
+import { AuthContext } from '../context';
 import { PageLayout } from '../components';
+import { theme } from '../components/tailwindClasses';
 
 const Login: NextPage = () => {
 	const { signInWithGoogle, firebaseUser } = useContext(AuthContext);
@@ -47,7 +47,7 @@ const Login: NextPage = () => {
 		<PageLayout title="NFTu - Login">
 			<div className="flex flex-col items-center justify-center">
 				<Image
-					src={firebaseUser.photoURL}
+					src={firebaseUser.photoURL as string}
 					alt="logo"
 					width={200}
 					height={200}
