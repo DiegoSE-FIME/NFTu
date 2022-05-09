@@ -2,40 +2,19 @@
 	font-family: 'Inter', sans-serif;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 1.5rem;
-	background: -webkit-linear-gradient(#00f5a0, #00d9f5);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	font-size: 1.7em;
+	color: #f1f1f1;
 	user-select: none;
+	cursor: pointer;
 }
 
-/* on hover logo gradient animates */
+/* on hover gradient animates */
 .logo:hover {
-	background: -webkit-linear-gradient(#00f5a0, #00d9f5);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	animation: gradient-animation 1s ease infinite;
+	color: #c1c1c1;
 }
 
-@keyframes gradient-animation {
-	0% {
-		background: -webkit-linear-gradient(#00f5a0, #00d9f5);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	50% {
-		background: -webkit-linear-gradient(#00d9f5, #00f5a0);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	100% {
-		background: -webkit-linear-gradient(#00f5a0, #00d9f5);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+@media (max-width: 768px) {
+	.logo {
+		font-size: 1.5em;
 	}
 }

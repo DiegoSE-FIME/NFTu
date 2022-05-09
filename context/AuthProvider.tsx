@@ -1,80 +1,51 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { IUser } from '../interfaces';
-import { User } from 'firebase/auth';
-import {
-	auth,
-	db,
-	provider,
-	signInWithPopup,
-	signOut,
-	addDoc,
-	collection,
-} from '../config/firebase';
+import type { User } from 'firebase/auth';
+import { supabase } from '../utils/supabaseClient';
 
 type AuthProviderProps = {
 	children: JSX.Element | JSX.Element[];
 };
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-	const [firebaseUser, setFirebaseUser] = useState<User | null>(null);
-	const [isLoading, setIsLoading] = useState(true);
+	const [user, setUser] = useState<User | null>(null);
 
-	function detectUser() {
-		auth.onAuthStateChanged(async (user) => {
-			if (user) {
-				setFirebaseUser(user);
-				setIsLoading(false);
-			} else {
-				setFirebaseUser(null);
-				setIsLoading(false);
-			}
-		});
-	}
-
-	useEffect(() => {
-		detectUser();
-	}, []);
-
-	async function addUser(user: User) {
-		if (user) {
-			const userData: IUser = {
+	async function createSupabaseUser(user: User): Promise<any[] | null> {
+		const { data, error } = await supabase.from('users').insert([
+			{
 				uid: user.uid,
-				email: user.email || '',
-				displayName: user.displayName || '',
-				photoURL: user.photoURL || '',
-				createdAt: new Date().toISOString(),
-			};
-			await addDoc(collection(db, 'users'), userData);
+				displayName: user.displayName,
+				email: user.email,
+				photoURL: user.photoURL,
+			},
+		]);
+
+		if (data) {
+			setUser(user);
 		}
+		if (error) {
+			console.error(error);
+		}
+
+		return data;
 	}
 
-	useEffect(() => {
-		if (firebaseUser) {
-			addUser(firebaseUser);
-		}
-	}, [firebaseUser]);
-
-	const signInWithGoogle = async () => {
-		try {
-			await signInWithPopup(auth, provider);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	async function signInWithGoogle() {
+		const { error } = await supabase.auth.signIn({ provider: 'google' });
+		if (error)
+			console.log(`Status:  ${error.status} - Message: ${error.message}`);
+	}
 
 	const signOutUser = async (): Promise<void> => {
-		await signOut(auth);
+		await supabase.auth.signOut();
 		console.log('signed out');
-		setFirebaseUser(null);
-		setIsLoading(false);
+		setUser(null);
 	};
 
 	return (
 		<AuthContext.Provider
 			value={{
-				firebaseUser,
-				isLoading,
+				user,
 				signInWithGoogle,
 				signOutUser,
 			}}>

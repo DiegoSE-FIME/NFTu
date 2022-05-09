@@ -1,10 +1,10 @@
 import { Method } from 'axios';
 import { User } from 'firebase/auth';
+
 export interface IAuthContext {
-	firebaseUser: User | null;
+	user: User | null;
 	signInWithGoogle: () => Promise<void>;
 	signOutUser: () => Promise<void>;
-	isLoading: boolean;
 }
 
 export interface FirebaseData {

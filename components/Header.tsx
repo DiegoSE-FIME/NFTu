@@ -1,47 +1,16 @@
 import Image from 'next/image';
+import { useState } from 'react';
 import { HeaderCard } from '../components';
 import { motion } from 'framer-motion';
 import { theme } from './tailwindClasses';
 import styles from './Header.module.css';
 
-function Gradient() {
-	return (
-		<div className={styles.gradient}>
-			<svg
-				className="w-[300px] h-[300px] lg:w-[248px] lg:h-[248px]"
-				viewBox="0 0 483 482"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg">
-				<g filter="url(#filter0_f_2_1384)">
-					<circle cx="220" cy="219" r="124" fill="#73FDAA" fillOpacity="0.5" />
-				</g>
-				<defs>
-					<filter
-						id="filter0_f_2_1384"
-						x="-43"
-						y="-44"
-						width="526"
-						height="526"
-						filterUnits="userSpaceOnUse"
-						colorinterpolation-filters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix" />
-						<feBlend
-							mode="normal"
-							in="SourceGraphic"
-							in2="BackgroundImageFix"
-							result="shape"
-						/>
-						<feGaussianBlur
-							stdDeviation="69.5"
-							result="effect1_foregroundBlur_2_1384"
-						/>
-					</filter>
-				</defs>
-			</svg>
-		</div>
-	);
+function cn(...classes: string[]) {
+	return classes.filter(Boolean).join(' ');
 }
+
 export const Header: React.FC = (): JSX.Element => {
+	const [isLoading, setLoading] = useState(true);
 	const variants = {
 		initial: {
 			opacity: 0,
@@ -52,65 +21,21 @@ export const Header: React.FC = (): JSX.Element => {
 			y: 0,
 		},
 	};
-
 	return (
-		<motion.section
-			className="grid grid-cols-1 place-content-center md:grid-cols-2 lg:grid-cols-2 gap-6 p-5"
-			variants={variants}
-			initial="initial"
-			animate="animate"
-			exit="exit"
-			transition={{
-				ease: 'easeInOut',
-				duration: 1,
-				delay: 0.6,
-			}}>
-			<Gradient />
-			<div className="child1 grid justify-items-center">
-				<div className="stars hidden w-96 lg:flex justify-end flex-col mb-2">
-					<div className="flex justify-end">
-						<Image src="/Star.svg" alt="star" width={44} height={44} />
-					</div>
-					<div className="flex justify-end ml-8 w-full">
-						<Image src="/Star2.svg" alt="star" width={24} height={24} />
-					</div>
-				</div>
-				<div className="text-3xl font-bold lg:leading-normal lg:text-5xl lg:w-3/4">
-					<h1>
-						A platform to find your digital{' '}
-						<span className={styles.gradientText}>unique</span> rarity.
-					</h1>
-				</div>
-				<p className={theme.description}>
-					NFTu platform brings artists and creators together on a single
-					platform. You can find your digital unique rarity and sell it to the
-					world.
+		<main className="main-container relative min-h-[100vh] pl-[0.75rem] pr-[0.75rem]">
+			<div className="flex flex-col justify-center relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+				<p className="text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-400 text-center mb-4">
+					Trade with Simpler and Smarter NFT world
 				</p>
-				<div className="justify-self-start lg:ml-20">
-					<button className={theme.getStartedButton}>
-						Get started
-						<div className="ml-4 w-auto mt-[.1em]">
-							<Image src="/Line.svg" alt="arrow" width={14} height={14} />
-						</div>
-					</button>
-					<button className={theme.buttonWithBorder}>How it works</button>
-				</div>
+				<motion.h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white leading-normal">
+					Explore the{' '}
+					<span className='text-indigo-500 after:content-[""]'>NFT</span> world,
+					collect and sell your art work
+				</motion.h1>
 			</div>
-			<div className="child2 hidden lg:grid lg:justify-self-center lg:content-center">
-				<div className="image">
-					<div className="w-3/4">
-						<Image
-							src="/header-img-example.svg"
-							alt="header-img"
-							width={350}
-							height={400}
-						/>
-					</div>
-					<div className="lg:-mt-32 lg:ml-20">
-						<HeaderCard />
-					</div>
-				</div>
+			<div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
+				<button className={theme.button}>Get Started</button>
 			</div>
-		</motion.section>
+		</main>
 	);
 };
