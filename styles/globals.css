@@ -11,7 +11,7 @@ body {
 	scroll-behavior: smooth;
 }
 ::selection {
-	background-color: rgb(111, 238, 141);
+	background-color: rgb(99, 102, 241);
 	color: #08090a;
 }
 a {

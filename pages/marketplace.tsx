@@ -37,8 +37,6 @@ const Marketplace: NextPage = (): JSX.Element => {
 							title={nft.title}
 							image={nft.media[0].gateway}
 							link="https://opensea.io"
-							address={nft.contract.address}
-							name="NFTu"
 						/>
 					))}
 				</div>

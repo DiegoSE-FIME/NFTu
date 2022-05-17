@@ -1,7 +1,19 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
 import Image from 'next/image';
-import { Slider } from './Slider';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useWeb3React } from '@web3-react/core';
+import { connector } from '../config/web3';
+import { Slider } from './Slider';
+import { MetaMaskInpageProvider } from '@metamask/providers';
+import { Card, Col, Text, Grid, Button } from '@nextui-org/react';
+import { cards } from '../utils';
+
+declare global {
+	interface Window {
+		ethereum?: MetaMaskInpageProvider;
+	}
+}
 
 function ContainerSteps({
 	title,
@@ -26,15 +38,66 @@ function Container({ children }: { children: ReactNode }): JSX.Element {
 	);
 }
 
-function Button({ title }: { title: string }) {
+function GrayButton({
+	title,
+	onClick,
+}: {
+	title: string;
+	onClick?: () => void;
+}): JSX.Element {
 	return (
-		<button className="mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none rounded-lg border border-gray-200 focus:z-10 focus:ring-4  dark:focus:ring-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600 dark:hover:text-slate-300 dark:hover:bg-gray-800">
+		<button
+			className="mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none rounded-lg border border-gray-200 focus:z-10 focus:ring-4  dark:focus:ring-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:border-gray-600 dark:hover:text-slate-300 dark:hover:bg-gray-800"
+			onClick={onClick}>
 			{title}
 		</button>
 	);
 }
 
+const Card1 = ({
+	title,
+	image,
+}: {
+	title: string;
+	image: string;
+}): JSX.Element => (
+	<Card cover hoverable clickable>
+		<Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+			<Col>
+				<Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+					{title}
+				</Text>
+				<Text h4 color="white">
+					{title}
+				</Text>
+			</Col>
+		</Card.Header>
+		<Card.Image
+			src={image}
+			height={340}
+			width="100%"
+			alt="Card image background"
+		/>
+	</Card>
+);
+
 export const Body: React.FC = (): JSX.Element => {
+	const { activate, active, deactivate, error } = useWeb3React();
+	const router = useRouter();
+	const connectWallet = useCallback(() => {
+		if (typeof window.ethereum !== 'undefined') {
+			activate(connector);
+			localStorage.setItem('previouslyConnected', 'true');
+		} else {
+			router.push('/WalletError');
+		}
+	}, [activate, router]);
+
+	const disconnectWallet = () => {
+		deactivate();
+		localStorage.removeItem('previouslyConnected');
+	};
+
 	return (
 		<>
 			<section className="flex flex-col justify-center relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
@@ -56,17 +119,23 @@ export const Body: React.FC = (): JSX.Element => {
 					/>
 				</Container>
 				<Container>
-					<div className="text-center relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+					<div
+						className="text-center relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32"
+						id="step1">
 						<h4 className="text-sky-400 uppercase">Step 1</h4>
 						<h3 className="font-semibold text-2xl sm:text-3xl">
 							Connect Your Wallet
 						</h3>
 						<p className="tracking-tight text-gray-400 w-full sm:max-w-xl mt-4">
 							Looking to kick off your NFT collection, but not sure where to
-							begin? The first thing you’ll need is a crypto wallet, which will
-							store your method of payment and allow you to access your new NFT.{' '}
+							begin? The first thing you&apos;ll need is a crypto wallet, which
+							will store your method of payment and allow you to access your new
+							NFT.{' '}
 						</p>
-						<Button title="Connect Wallet" />
+						<GrayButton
+							title={active ? 'Disconnect Wallet' : 'Connect Wallet'}
+							onClick={active ? disconnectWallet : connectWallet}
+						/>
 					</div>
 				</Container>
 				<Container>
@@ -129,7 +198,6 @@ export const Body: React.FC = (): JSX.Element => {
 							an NFT you love. Here are a few things you may want to keep in
 							mind to simplify the process.
 						</p>
-						<Button title="Connect Wallet" />
 					</div>
 				</Container>
 				<Container>
@@ -153,19 +221,54 @@ export const Body: React.FC = (): JSX.Element => {
 					<div className="p-6 max-w-2xl rounded-lg border-current bg-gray-900 border border-gray-800">
 						<div>
 							<h3 className="font-bold text-2xl sm:text-3xl mt-8">
-								Consider The Purpose of Purchasing.
+								Consider The{' '}
+								<span className="text-indigo-400 after:content-['']">
+									Purpose{' '}
+								</span>
+								of Purchasing .
 							</h3>
 							<p className="text-gray-400 mt-5 max-w-xl">
-								Are you buying an NFT you’ll use for a profile photo (PFP)?
-								Alternatively, is it purely for art? Is it something you’d
-								display at home? Maybe you’re looking for virtual land? How long
-								do you plan to own the NFT? Asking these questions will help you
-								narrow down the search as you browse.
+								Are you buying an NFT you&apos;ll use for a profile photo (PFP)?
+								Alternatively, is it purely for art? Is it something you&apos;d
+								display at home? Maybe you&apos;re looking for virtual land? How
+								long do you plan to own the NFT? Asking these questions will
+								help you narrow down the search as you browse.
+							</p>
+
+							<h3 className="font-bold text-2xl sm:text-3xl mt-8">
+								Research The{' '}
+								<span className='text-indigo-500 after:content-[""]'>
+									Artist
+								</span>
+							</h3>
+							<p className="text-gray-400 mt-5 max-w-xl">
+								Artistry takes many forms. Some artists are brilliant and just
+								starting out. Others are accomplished and have a history of
+								other successful projects. At the end of the day, does the art
+								make you feel a certain way? Do you want to support the artist?
 							</p>
 						</div>
-						<div className="cursor-pointer text-yellow-200 mt-3">
+						<div className="cursor-pointer text-indigo-500 mt-3">
 							<Link href="/marketplace">Explore the Marketplace</Link>
 						</div>
+					</div>
+				</Container>
+
+				<Container>
+					<div className="text-center relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+						<h4 className="text-sky-400 uppercase">Step 3</h4>
+						<h3 className="font-semibold text-2xl sm:text-3xl">
+							Browse By Category
+						</h3>
+						<article className="mt-4">
+							<Grid.Container gap={2} justify="center">
+								{cards.map(({ title, image }, index) => (
+									<Grid key={index} xs={12} sm={4}>
+										<Card1 title={title} image={image} />
+									</Grid>
+								))}
+							</Grid.Container>
+						</article>
 					</div>
 				</Container>
 				<Container>
@@ -177,6 +280,24 @@ export const Body: React.FC = (): JSX.Element => {
 				</Container>
 			</section>
 			<Slider />
+			<Container>
+				<div className="text-center relative max-w-xl mx-auto pt-20 sm:pt-24 lg:pt-32 mb-8">
+					<h3 className="font-semibold text-2xl sm:text-3xl max-w-xl">
+						We&apos;ve helped over 1,000 creators reclaim control of their
+						audience.
+					</h3>
+					<div className="flex flex-col justify-center">
+						<p className="text-gray-400 m-5 max-w-xl">
+							Setup is easy and takes just a few minutes.
+						</p>
+					</div>
+					<div className="flex justify-center">
+					<Button color="primary">
+						<Link href="/marketplace">Get Started</Link>
+					</Button>
+					</div>
+				</div>
+			</Container>
 		</>
 	);
 };

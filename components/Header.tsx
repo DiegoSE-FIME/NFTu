@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { theme } from './tailwindClasses';
+import Link from 'next/link';
+import { Button } from '@nextui-org/react';
 
 const sentence = {
 	hidden: { opacity: 1 },
@@ -46,7 +47,9 @@ export const Header: React.FC = (): JSX.Element => {
 				</motion.h1>
 			</div>
 			<div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
-				<button className={theme.button}>Get Started</button>
+				<Button color="gradient" auto rounded>
+					<Link href="#step1">Get Started</Link>
+				</Button>
 			</div>
 		</>
 	);

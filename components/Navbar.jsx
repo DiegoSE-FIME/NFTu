@@ -6,7 +6,7 @@ import { useCycle } from 'framer-motion';
 import { connector } from '../config/web3';
 import { AuthContext } from '../context';
 import styles from './Logo.module.css';
-import { theme } from './tailwindClasses';
+import { Button } from '@nextui-org/react';
 import { Sidebar } from './Sidebar';
 
 export const Navbar = () => {
@@ -74,7 +74,7 @@ export const Navbar = () => {
 					<Link href="/" passHref>
 						<p className={styles.logo}>NFTu</p>
 					</Link>
-					<span className="uppercase bg-black border border-white text-gray-200 text-xs font-semibold ml-3 mt-1.5 sm:mt-2.5 px-2.5 py-0.5 rounded-full h-5 w-fit sm:w-full">
+					<span className="uppercase bg-black border border-white text-gray-200 text-xs font-semibold -ml-2 sm:ml-3 mt-7 sm:mt-2.5 px-2.5 py-0.5 rounded-full h-5 w-fit sm:w-full">
 						Beta
 					</span>
 				</div>
@@ -93,16 +93,16 @@ export const Navbar = () => {
 				</div>
 				<div className="hidden sm:flex">
 					{active ? (
-						<button className={theme.button} onClick={disconnectWallet}>
+						<Button color="gradient" auto rounded onClick={disconnectWallet}>
 							Disconnect Wallet
-						</button>
+						</Button>
 					) : (
-						<button className={theme.button} onClick={connectWallet}>
+						<Button color="gradient" auto rounded onClick={connectWallet}>
 							Connect Wallet
-						</button>
+						</Button>
 					)}
 				</div>
-				<div className="block sm:hidden p-2">
+				<div className="block sm:hidden p-5 z-50">
 					<div className="z-50 sticky">
 						<svg
 							className="w-6 h-6"

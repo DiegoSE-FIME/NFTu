@@ -1,7 +1,7 @@
 export const Footer = (): JSX.Element => {
 	return (
 		<>
-			<footer className="p-4 sm:p-6 border-t border-teal-500">
+			<footer className="p-4 sm:p-6 border-t border-gray-500">
 				<div className="md:flex md:justify-between">
 					<div className="mb-6 md:mb-0">
 						<a href="https://flowbite.com" className="flex items-center">

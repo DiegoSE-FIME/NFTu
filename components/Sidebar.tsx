@@ -27,15 +27,15 @@ export const Sidebar: React.FC<Props> = ({
 					initial={{ width: 0 }}
 					animate={{
 						width: '100%',
-						height: '100%',
+						height: '60%',
 						color: '#fff',
 						background: '#000',
 					}}
 					exit={{ width: 0, transition: { delay: 0.7, duration: 0.3 } }}
-					className="w-64 h-full absolute top-0 left-0 z-40"
-					aria-label="Sidebar">
+					aria-label="Sidebar"
+					className="w-64 absolute top-0 left-0 z-40">
 					<motion.div
-						className="w-64 overflow-y-auto py-4 px-3 overflow-x-hidden"
+						className="w-64 overflow-y-auto p-5 overflow-x-hidden"
 						initial="closed"
 						animate="open"
 						exit="closed"
