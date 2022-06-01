@@ -6,7 +6,7 @@ import { useCycle } from 'framer-motion';
 import { connector } from '../config/web3';
 import { AuthContext } from '../context';
 import styles from './Logo.module.css';
-import { Button } from '@nextui-org/react';
+import { Button, User } from '@nextui-org/react';
 import { Sidebar } from './Sidebar';
 
 export const Navbar = () => {
@@ -91,11 +91,22 @@ export const Navbar = () => {
 						</Fragment>
 					))}
 				</div>
-				<div className="hidden sm:flex">
+				<div className="hidden sm:flex sm:items-center md:order-2">
 					{active ? (
-						<Button color="gradient" auto rounded onClick={disconnectWallet}>
-							Disconnect Wallet
-						</Button>
+						<Fragment>
+							<Button color="gradient" auto rounded onClick={disconnectWallet}>
+								Disconnect Wallet
+							</Button>
+							<Link href="/dashboard" passHref>
+								<User
+									bordered
+									src="https://i.pravatar.cc/150?u=a048581f4e29026701d"
+									name="William Howard"
+									color="success"
+									pointer
+								/>
+							</Link>
+						</Fragment>
 					) : (
 						<Button color="gradient" auto rounded onClick={connectWallet}>
 							Connect Wallet

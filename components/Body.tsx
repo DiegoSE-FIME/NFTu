@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,6 +8,7 @@ import { Slider } from './Slider';
 import { MetaMaskInpageProvider } from '@metamask/providers';
 import { Card, Col, Text, Grid, Button } from '@nextui-org/react';
 import { cards } from '../utils';
+import { CardCategory } from '../interfaces/';
 
 declare global {
 	interface Window {
@@ -54,31 +55,31 @@ function GrayButton({
 	);
 }
 
-const Card1 = ({
+const Card1: React.FC<CardCategory> = ({
 	title,
 	image,
-}: {
-	title: string;
-	image: string;
+	category,
 }): JSX.Element => (
-	<Card cover hoverable clickable>
-		<Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
-			<Col>
-				<Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-					{title}
-				</Text>
-				<Text h4 color="white">
-					{title}
-				</Text>
-			</Col>
-		</Card.Header>
-		<Card.Image
-			src={image}
-			height={340}
-			width="100%"
-			alt="Card image background"
-		/>
-	</Card>
+	<Link href={`/category/${category.toLowerCase()}`}>
+		<Card cover hoverable clickable>
+			<Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+				<Col>
+					<Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+						{title}
+					</Text>
+					<Text h4 color="white">
+						{title}
+					</Text>
+				</Col>
+			</Card.Header>
+			<Card.Image
+				src={image}
+				height={340}
+				width="100%"
+				alt="Card image background"
+			/>
+		</Card>
+	</Link>
 );
 
 export const Body: React.FC = (): JSX.Element => {
@@ -264,7 +265,7 @@ export const Body: React.FC = (): JSX.Element => {
 							<Grid.Container gap={2} justify="center">
 								{cards.map(({ title, image }, index) => (
 									<Grid key={index} xs={12} sm={4}>
-										<Card1 title={title} image={image} />
+										<Card1 title={title} image={image} category={title} />
 									</Grid>
 								))}
 							</Grid.Container>
@@ -292,9 +293,9 @@ export const Body: React.FC = (): JSX.Element => {
 						</p>
 					</div>
 					<div className="flex justify-center">
-					<Button color="primary">
-						<Link href="/marketplace">Get Started</Link>
-					</Button>
+						<Button color="primary">
+							<Link href="/marketplace">Get Started</Link>
+						</Button>
 					</div>
 				</div>
 			</Container>

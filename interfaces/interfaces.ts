@@ -192,3 +192,9 @@ export interface CarouselProps {
 	nfts: OwnedNft[];
 	images?: string[];
 }
+
+export interface CardCategory {
+	title: string;
+	image: string;
+	category: string;
+}

@@ -17,6 +17,7 @@ module.exports = {
 			'gateway.pinatas.cloud',
 			'storage.googleapis.com',
 			'api.9021.io',
+			'nextui.org'
 		],
 	},
 };
